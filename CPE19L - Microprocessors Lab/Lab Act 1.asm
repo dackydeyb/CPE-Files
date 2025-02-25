@@ -5,7 +5,7 @@
 start:
     mov ah, 02h  
     
-    
+
     ; New line
     mov dl, 0Dh  
     int 21h
