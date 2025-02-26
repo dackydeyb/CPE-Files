@@ -1,0 +1,195 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Main Page extends JFrame {
+
+    public MainPage() {
+        setTitle("ADHD Management Application");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        
+        // Setting up the background
+        JLabel background = new JLabel(new ImageIcon("path/to/your/background/image.jpg"));
+        setContentPane(background);
+        setLayout(new BorderLayout());
+
+        // Application Title
+        JLabel titleLabel = new JLabel("ADHD Management Application", JLabel.CENTER);
+        titleLabel.setFont(new Font("Serif", Font.BOLD, 24));
+        titleLabel.setForeground(Color.WHITE);
+        add(titleLabel, BorderLayout.NORTH);
+
+        // Center panel for buttons
+        JPanel centerPanel = new JPanel();
+        centerPanel.setOpaque(false);
+        centerPanel.setLayout(new GridLayout(5, 1, 10, 10));
+        
+        JButton startButton = new JButton("Start");
+        JButton instructionsButton = new JButton("Instructions");
+        JButton creditsButton = new JButton("Credits");
+        JButton exitButton = new JButton("Close/Exit");
+
+        centerPanel.add(startButton);
+        centerPanel.add(instructionsButton);
+        centerPanel.add(creditsButton);
+        centerPanel.add(exitButton);
+        
+        add(centerPanel, BorderLayout.CENTER);
+
+        // Action Listeners
+        startButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                showMainApplication();
+            }
+        });
+
+        instructionsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                showInstructions();
+            }
+        });
+
+        creditsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                showCredits();
+            }
+        });
+
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+    }
+
+    private void showMainApplication() {
+        // Implement the logic to navigate to the main application
+        new MainApplication().setVisible(true);
+        this.dispose();
+    }
+
+    private void showInstructions() {
+        JOptionPane.showMessageDialog(this, "Instructions on how to use the application...", "Instructions", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void showCredits() {
+        JOptionPane.showMessageDialog(this, "Developed by Your Name...", "Credits", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new MainPage().setVisible(true);
+            }
+        });
+    }
+}
+
+
+// Main Application: 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MainApplication extends JFrame {
+
+    public MainApplication() {
+        setTitle("ADHD Management Application");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(4, 1, 10, 10));
+
+        JButton taskReminderButton = new JButton("Task and Reminder System");
+        JButton timerAlertsButton = new JButton("Timer and Alerts");
+        JButton noteTakingButton = new JButton("Note-taking Interface");
+        JButton habitTrackerButton = new JButton("Habit Tracker");
+
+        mainPanel.add(taskReminderButton);
+        mainPanel.add(timerAlertsButton);
+        mainPanel.add(noteTakingButton);
+        mainPanel.add(habitTrackerButton);
+
+        add(mainPanel);
+
+        // Action Listeners
+        taskReminderButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new TaskReminderSystem().setVisible(true);
+            }
+        });
+
+        timerAlertsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new TimerAlerts().setVisible(true);
+            }
+        });
+
+        noteTakingButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new NoteTakingInterface().setVisible(true);
+            }
+        });
+
+        habitTrackerButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new HabitTracker().setVisible(true);
+            }
+        });
+    }
+}
+
+
+// Other Classes: Each functionality (e.g., TaskReminderSystem, TimerAlerts, etc.) will be implemented in its own class. Here's a basic structure for these classes:
+
+import javax.swing.*;
+
+public class TaskReminderSystem extends JFrame {
+    public TaskReminderSystem() {
+        setTitle("Task and Reminder System");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Implement the task and reminder system interface here
+    }
+}
+
+public class TimerAlerts extends JFrame {
+    public TimerAlerts() {
+        setTitle("Timer and Alerts");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Implement the timer and alerts interface here
+    }
+}
+
+public class NoteTakingInterface extends JFrame {
+    public NoteTakingInterface() {
+        setTitle("Note-taking Interface");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Implement the note-taking interface here
+    }
+}
+
+public class HabitTracker extends JFrame {
+    public HabitTracker() {
+        setTitle("Habit Tracker");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Implement the habit tracker interface here
+    }
+}
