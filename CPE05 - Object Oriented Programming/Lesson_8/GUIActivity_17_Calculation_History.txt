@@ -1,0 +1,36 @@
+   Hypotenuse: 199.63
+   Adjacent: 183.76
+   Opposite: 78.0
+
+   Angle A: 23.0
+   Angle B: 67.0
+
+   Total Angle: 180.0 degrees
+
+   Last Updated on: Sun May 19 20:11:58 PST 2024
+
+---------------------------------------------------------------
+   Hypotenuse: 85.0
+   Adjacent: 25.0
+   Opposite: 81.24
+
+   Angle A: 72.9
+   Angle B: 17.1
+
+   Total Angle: 180.0 degrees
+
+   Last Updated on: Sun May 19 20:16:30 PST 2024
+
+---------------------------------------------------------------
+   Hypotenuse: 84.74
+   Adjacent: 33.11
+   Opposite: 78.0
+
+   Angle A: 67.0
+   Angle B: 23.0
+
+   Total Angle: 180.0 degrees
+
+   Last Updated on: Sat Jul 06 21:47:03 PST 2024
+
+---------------------------------------------------------------
