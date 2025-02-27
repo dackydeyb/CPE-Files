@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Click Handler Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/JQuery Basic/example.css">
+    <script src="/JQuery Basic/jquery-3.7.1.min.js"></script>
+    <script>
+        // click method
+        $(document).ready(function() {
+            $("#slide").click(function() {
+                $(this).slideUp();
+            })
+        })
+
+        // Alert
+        $(document).ready(function() {
+            alert("Hello");
+        })
+
+        // Double Click
+        $(document).ready(function() {
+            $("#slideUp").dblclick(function() {
+                $(this).slideUp();
+            });
+        });
+
+        // Hover method
+        $(document).ready(function() {
+            $("#hover").hover(function() {
+                $(this).addClass("highlight");
+            }, function () {
+                $(this).removeClass("highlight");
+            })
+        })
+
+        // mouse enter method
+        $(document).ready(function() {
+            $("#mouseEnter").mouseenter(function() {
+                $(this).addClass("mouseenter");
+            })
+        })
+
+         // Mouse leave method
+        $(document).ready(function() {
+            $("#mouseLeave").mouseleave(function() {
+                $(this).removeClass("mouseleave");
+            });
+        });
+
+        // keypress method
+        $(document).ready(function() {
+            var i = 0;
+            $('input[type="text"]').keypress(function() {
+                $("span").text(i += 1);
+                $("#keypress").show().fadeOut();
+            })
+        })
+
+        // Keydown method
+        $(document).ready(function() {
+            var i = 0;
+            $('input[type="text"]').keydown(function() {
+                $("span").text(i += 1);
+                $("#keydown").show().fadeOut();
+            })
+        })
+
+        // Keyup method
+        $(document).ready(function() {
+            var i = 0;
+            $('input[type="text"]').keyup(function() {
+                $("span").text(i += 1);
+                $("#keydup").show().fadeOut();
+            })
+        })
+
+        // change method 
+        $(document).ready(function() {
+            $("#input1").focus(function() {
+                $(this).next("span").show().fadeOut("slow");
+            })
+        })
+
+        // Focus method
+        $(document).ready(function() {
+            $("#input2").focus(function(){
+                $(this).next("span").show().fadeOut("slow");
+            })
+        })
+
+        // Blur method
+        $(document).ready(function() {
+            $("#input3").blur(function() {
+                $(this).next("span").show().fadeOut("slow");
+            })
+        })
+        
+        // submit method
+        $(document).ready(function() {
+            $("form").submit(function(event){
+                var regex = /^[a-zA-Z]+$/;
+                var currentValue = $("#firstName").val();
+                if(regex.test(currentValue) == false) {
+                    $("#result").html('<p class="error">Yup gumana submit MUHEHEHEHEHE</p>').show().fadeOut(1500);
+                    event.preventDefault();
+                }
+            });
+        });
+
+        // ready method
+        $(document).ready(function() {
+            $("#readyDOM").text("The DOM is now loaded and can be manipulated.");
+        }) 
+
+        // resize method
+        $(document).ready(function () {
+            $(window).resize(function () {
+                $(window).bind("resize", function() {
+                    $("#resize").text("Window width: " + $(window).width() + ", " +  "window height: " + $(window).height());
+                })
+            })
+        })
+
+        // scroll method
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                $("#scroll").show().fadeOut("slow");
+            })
+        }) 
+    </script>
+</head>
+<body>
+    <hr>
+    <!-- This is click method -->
+    <p id="slide">Click here</p>
+
+    <!-- This is double click method -->
+    <p id="slideUp">Double Click here</p>
+
+    <p id="hover">Hover over me</p>
+    <p id="mouseEnter">Mouse enter over me</p>
+    <p id="mouseLeave" class="mouseleave">Mouse leave over me</p>
+
+    <hr>
+    <br>
+    <br>
+    <!-- This is keypress method -->
+    <input type="text" placeholder="Type something here...">
+    <p>Keypress count: <span id="keypress">0</span></p>
+    <p>Keydown count: <span id="keydown">0</span></p>
+    <p>Keyup count: <span id="keydup">0</span></p>
+    <hr>
+    <br>
+    <br>
+    <!-- Form Events -->
+    <body>
+    <input type="text" id="input1" name="input1">
+    <span>Input 1 change</span><br>
+
+
+    <input type="text" id="input2" name="input2">
+    <span>Input 2 focused </span><br>
+
+    <input type="text" id="input3" name="input3">
+    <span>Input 3blurred</span><br>
+
+
+    <form>
+        <label id="firstName">First Name:</label><br>
+        <input type="text" id="firstName" name="firstName"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="result"></div>
+    <p></p>
+
+    <script>
+        
+    </script>
+
+
+    <div id="ready">
+        <p id="readyDOM"></p>
+    </div>
+    
+    <div id="resize"></div>
+
+    <br>
+    Scroll Status:
+    <div id="scroll" style="display:none;">
+        <h1>Scrolling...</h1>
+    </div>
+
+    
+</body>
+</html>

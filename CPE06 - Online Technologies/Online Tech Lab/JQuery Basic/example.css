@@ -1,0 +1,15 @@
+.highlight {
+    background-color: purple;
+}
+
+.mouseenter {
+    background-color: red;
+}
+
+.mouseleave {
+    background-color: blue;
+}
+
+body {
+    height: 120vh;
+}

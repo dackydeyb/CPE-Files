@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic HTML Example</title>
+
+    <script language="JavaScript">
+        var timerID;
+        var x = 0;
+        var y = 0;
+
+        function BeginAnimation() {
+            timerID = window.setInterval("ContinueAnimation()", 15);
+            setTimeout(showMegumin, 2000);
+        }
+
+        function ContinueAnimation() {
+            x += 10;
+            document.getElementById("MyPhoto").style.left = x + "px";
+            y += 2;
+            document.getElementById("MyPhoto").style.top = y + "px";
+            if (x > 1400) {
+                window.clearInterval(timerID);
+            }
+        }
+
+        function showMegumin() {
+            var img = document.getElementById('megumin');
+            img.style.visibility = 'visible';
+            img.style.zIndex = 1;
+            img.style.opacity = 1;
+        }
+    </script>
+</head>
+
+<style>
+    #worldtradecenter {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 900px;
+        height: 1100px;
+        z-index: -2;
+        padding-left: 1100px;
+    }
+
+    #megumin {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 500px;
+        height: 400px;
+        z-index: -1;
+        padding-top: 200px;
+        padding-left: 1400px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.1s linear;
+    
+    }
+</style>
+
+<body onload="BeginAnimation()" marginheight="0" topmargin="0" leftmargin="0">
+    <img src="airline.jpg" alt="" id="MyPhoto" class="MyPhoto" style="position: absolute; top: 0px; left: 0px; width: 500px; height: 300px;">
+    <img src="wtc.jpg" alt="" id="worldtradecenter">
+    <img src="megumin.gif" alt="" id="megumin">
+</body>
+</html>
