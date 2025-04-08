@@ -245,8 +245,8 @@
 ; NUMBER 10
 .model small
 .data
-num1 db 1
-num2 db 5 
+num1 db 5
+num2 db 1 
 num3 db 2
 lar db '0', 13,10, '$'
 .code
@@ -273,9 +273,10 @@ jg firstlargest     ; jump para print first as largest
 jmp thirdlargest    ; jump pag mas mali ung third
 
 firstlargest:
-mov al, [num1]      ; save sa AL ung laman ng variable na num1
-or al, 30h          ; use OR para maging ASCII
-lea bx, lar         ; kukunin address ng variable na LAR at isave sa BX
+mov al, [num1]      
+or al, 30h          ; save sa AL ung laman ng variable na num1
+lea bx, lar         ; use OR para maging ASCII
+mov [bx], al        ; kukunin address ng variable na LAR at isave sa BX
 jmp print           ; isave sa memory location ng LAR ung valie ng AL
 
 secondlargest:
