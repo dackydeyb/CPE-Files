@@ -2,9 +2,11 @@ extends Node2D
 
 #Game variables
 const TOTAL_MINES : int = 10
+var high_score : int = 0
 var time_elapsed : float
 var remaining_mines : int
 var first_click : bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,17 +19,28 @@ func new_game():
 	$TileMap.new_game()
 	$GameOver.hide()
 	get_tree().paused = false
+	# Update Highscore display even if unchanged, for consistency
+	$HUD.get_node("Highscore").text = str(high_score)
+
 
 func _process(delta):
-	time_elapsed += delta
+	if !first_click:
+		time_elapsed += delta
 	$HUD.get_node("Stopwatch").text = str(int(time_elapsed))
 	$HUD.get_node("RemainingMines").text = str(remaining_mines)
 
 func end_game(result):
 	get_tree().paused = true
 	$GameOver.show()
+	
 	if result == 1:
 		$GameOver.get_node("Label").text = "YOU WIN!"
+		
+		var time_taken = int(time_elapsed)
+		if high_score == 0 or time_taken < high_score:
+			high_score = time_taken
+		
+		$HUD.get_node("Highscore").text = str(high_score)
 	else:
 		$GameOver.get_node("Label").text = "SABOG!"
 
@@ -52,4 +65,3 @@ func _on_game_over_restart():
 
 func _on_pause_button_pressed():
 	$PauseMenu.pause_game()
-

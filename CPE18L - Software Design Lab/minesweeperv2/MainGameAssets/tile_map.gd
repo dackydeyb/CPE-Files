@@ -136,18 +136,18 @@ func _input(event):
 					#check that there is no flag there
 					if not is_flag(map_pos):
 						#check if it is a mine
-						if is_mine(map_pos):
-							#check if is the first click
-							if get_parent().first_click:
-								move_mine(map_pos)
-								generate_numbers()
-								process_left_click(map_pos) # Process click on the new empty cell
-							#otherwise end game
-							else:
+						if get_parent().first_click:
+							# Ensure first click is safe and surrounded by no mines
+							clear_safe_area(map_pos)
+							generate_numbers()
+							process_left_click(map_pos)
+						else:
+							if is_mine(map_pos):
 								end_game.emit()
 								show_mines()
-						else:
-							process_left_click(map_pos)
+							else:
+								process_left_click(map_pos)
+
 
 			# Check for right click press
 			elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
@@ -312,6 +312,14 @@ func check_win_condition():
 			if not is_flag(mine):
 				set_cell(flag_layer, mine, tile_id, flag_atlas)
 				flag_placed.emit()
+
+func clear_safe_area(center_pos):
+	var safe_zone = get_all_surrounding_cells(center_pos)
+	safe_zone.append(center_pos)  # include center in safe area
+
+	for safe_cell in safe_zone:
+		if is_mine(safe_cell):
+			move_mine(safe_cell)
 
 
 #helper functions
