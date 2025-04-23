@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://wed1ubkb3g8g"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_7k870"]
+[ext_resource type="PackedScene" uid="uid://4mqls62vrryw" path="res://MainGameAssets/tile_map.tscn" id="2_d1g4b"]
+[ext_resource type="PackedScene" uid="uid://ds81u7nml4x3s" path="res://MainGameAssets/hud.tscn" id="3_3ob5d"]
+[ext_resource type="PackedScene" uid="uid://roob15vboiko" path="res://GameOver.tscn" id="4_a6qsm"]
+[ext_resource type="PackedScene" uid="uid://bbtibwayj5fyi" path="res://pause_menu.tscn" id="6_1rtjr"]
+[ext_resource type="Texture2D" uid="uid://b8u8te2171hwm" path="res://MainGameAssets/pauseButton.png" id="6_n1715"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ulp64"]
+texture = ExtResource("6_n1715")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_7k870")
+
+[node name="HUD" parent="." instance=ExtResource("3_3ob5d")]
+
+[node name="TileMap" parent="." instance=ExtResource("2_d1g4b")]
+z_as_relative = false
+position = Vector2(500, 500)
+layer_0/name = "Background"
+layer_1/name = "Mines"
+layer_2/name = "Numbers"
+layer_3/name = "Grass"
+layer_4/name = "Flags"
+layer_5/name = "Hover"
+layer_5/enabled = true
+layer_5/modulate = Color(1, 1, 1, 1)
+layer_5/y_sort_enabled = false
+layer_5/y_sort_origin = 0
+layer_5/z_index = 0
+layer_5/tile_data = PackedInt32Array()
+
+[node name="GameOver" parent="." instance=ExtResource("4_a6qsm")]
+process_mode = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_1rtjr")]
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 39.0
+offset_right = 177.0
+offset_bottom = 164.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ulp64")
+
+[connection signal="end_game" from="TileMap" to="." method="_on_tile_map_end_game"]
+[connection signal="flag_placed" from="TileMap" to="." method="_on_tile_map_flag_placed"]
+[connection signal="flag_removed" from="TileMap" to="." method="_on_tile_map_flag_removed"]
+[connection signal="game_won" from="TileMap" to="." method="_on_tile_map_game_won"]
+[connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

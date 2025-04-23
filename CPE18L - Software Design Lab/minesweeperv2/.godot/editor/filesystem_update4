@@ -1,0 +1,16 @@
+res://MainMenuAssets/menu.tscn
+res://MainMenuAssets/creditsMenu.tscn
+res://GameMode/game_mode.tscn
+res://GameMode/difficulty.tscn
+res://main.tscn
+res://MainGameAssets/hud.tscn
+res://GameOver.tscn
+res://pause_layout.tscn
+res://GameOver.gd
+res://GameMode/difficulty.gd
+res://main.gd
+res://MainGameAssets/tile_map.gd
+res://pause_layout.gd
+res://pause_menu.tscn
+res://pause_menu.gdshader
+res://pause_menu.gd

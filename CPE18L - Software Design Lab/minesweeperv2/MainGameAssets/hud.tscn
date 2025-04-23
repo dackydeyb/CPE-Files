@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds81u7nml4x3s"]
+
+[ext_resource type="Texture2D" uid="uid://cjkp1yjrbq66t" path="res://MainGameAssets/gameBoardBackground.png" id="1_nr2iq"]
+[ext_resource type="Texture2D" uid="uid://2i46oohe8qcl" path="res://MainGameAssets/flag.png" id="2_36ll6"]
+[ext_resource type="Texture2D" uid="uid://c0ce0c7l8qp8i" path="res://MainGameAssets/timerNew.png" id="3_oqvwj"]
+[ext_resource type="Texture2D" uid="uid://dwkb1dd3ymuft" path="res://MainGameAssets/trophy.png" id="4_nveop"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_crikp"]
+texture = ExtResource("1_nr2iq")
+
+[node name="HUD" type="Panel"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_crikp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Flag" type="Sprite2D" parent="."]
+position = Vector2(378, 107)
+texture = ExtResource("2_36ll6")
+
+[node name="RemainingMines" type="Label" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 43.0
+offset_right = 540.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 95
+text = "40"
+
+[node name="Timer" type="Sprite2D" parent="."]
+position = Vector2(1377, 111)
+texture = ExtResource("3_oqvwj")
+
+[node name="Stopwatch" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1444.0
+offset_top = 45.0
+offset_right = 1667.0
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 95
+text = "0"
+
+[node name="Trophy" type="Sprite2D" parent="."]
+position = Vector2(855, 113)
+texture = ExtResource("4_nveop")
+
+[node name="Highscore" type="Label" parent="."]
+offset_left = 917.0
+offset_top = 43.0
+offset_right = 1079.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 95
+text = "100"
