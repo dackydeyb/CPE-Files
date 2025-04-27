@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo4m3k47sr174"]
+
+[ext_resource type="Texture2D" uid="uid://dqwb37jx2yvwj" path="res://MainGameAssets/TilesetMedium.png" id="1_g71ha"]
+[ext_resource type="Script" path="res://tile_map_hard.gd" id="1_q622l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kp8xj"]
+texture = ExtResource("1_g71ha")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+1:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+1:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+7:6/0 = 0
+3:6/0 = 0
+6:6/0 = 0
+6:5/0 = 0
+6:4/0 = 0
+3:4/0 = 0
+3:5/0 = 0
+2:5/0 = 0
+2:4/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dltq7"]
+tile_size = Vector2i(50, 50)
+sources/0 = SubResource("TileSetAtlasSource_kp8xj")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_dltq7")
+format = 2
+layer_0/name = "Mines"
+layer_1/name = "Numbers"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Grass"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Flags"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array()
+layer_4/name = "Hovers"
+layer_4/enabled = true
+layer_4/modulate = Color(1, 1, 1, 1)
+layer_4/y_sort_enabled = false
+layer_4/y_sort_origin = 0
+layer_4/z_index = 0
+layer_4/tile_data = PackedInt32Array()
+script = ExtResource("1_q622l")

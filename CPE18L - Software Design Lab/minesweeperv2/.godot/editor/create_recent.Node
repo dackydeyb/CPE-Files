@@ -1,5 +1,11 @@
-Button
+TextureRect
+Sprite2D
+Label
+Timer
+TileMap
 CanvasLayer
+Panel
+Button
 ColorRect
 AnimationPlayer
 MarginContainer
@@ -8,9 +14,5 @@ VBoxContainer
 PanelContainer
 Control
 MenuBar
-Panel
-Label
-Sprite2D
 CanvasGroup
-TileMap
 Container

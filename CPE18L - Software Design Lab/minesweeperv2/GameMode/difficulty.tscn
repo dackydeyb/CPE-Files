@@ -110,3 +110,5 @@ text = "      "
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="PanelContainer/Panel/HBoxContainer/Basic" to="." method="_on_basic_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/HBoxContainer/JustRight" to="." method="_on_just_right_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/HBoxContainer/God" to="." method="_on_god_pressed"]
