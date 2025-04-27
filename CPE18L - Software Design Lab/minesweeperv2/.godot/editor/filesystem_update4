@@ -8,3 +8,5 @@ res://MainGameAssets/hard.tscn
 res://MainGameAssets/tile_map_hard.tscn
 res://MainGameAssets/tile_map.tscn
 res://MainGameAssets/hud.tscn
+res://tile_map_hard.gd
+res://MainGameAssets/hud.gd

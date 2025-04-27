@@ -44,6 +44,9 @@ var shield_count: int = 0
 var shield_active : bool = false
 var has_flag_been_placed_while_shield_active : bool = false
 
+# Define the delay before the fade-in on game restart
+const RESTART_FADE_IN_DELAY = 0.5 # Adjust this value for restart delay
+
 func generate_number_atlas():
 	var a := []
 	for i in range(8):
@@ -72,7 +75,11 @@ func new_game():
 	shield_active = false
 	shield_count = 0
 	has_flag_been_placed_while_shield_active = false
-	update_hud()
+	# Wait for the defined delay before updating the HUD (which triggers fade-in)
+	get_tree().call_group("hud", "reset_display")
+	await get_tree().create_timer(RESTART_FADE_IN_DELAY).timeout
+	update_hud() # This will now trigger the fade-in on new game/restart
+
 
 func generate_background():
 	for y in range(ROWS):
@@ -94,6 +101,7 @@ func generate_powerups():
 		attempts += 1
 	if placed < num_shields:
 		print("Warning: Could not place all %d shields. Placed %d." % [num_shields, placed])
+
 
 func generate_mines():
 	for i in range(get_parent().TOTAL_MINES):
@@ -193,6 +201,7 @@ func _input(event):
 						scan_mines(map_pos)
 						chording = false
 
+
 func process_left_click(pos):
 	total_clicks += 1
 	if total_clicks > 3:
@@ -250,6 +259,7 @@ func try_revert_variants():
 			else:
 				set_random_variant(cell, cnt)
 
+
 func set_random_variant(cell, cnt):
 	var variants = [
 		shuffle_atlas[cnt - 1],
@@ -263,21 +273,30 @@ func set_random_variant(cell, cnt):
 func process_right_click(pos):
 	if not is_grass(pos):
 		return
+
 	if is_flag(pos):
 		erase_cell(flag_layer, pos)
 		flag_removed.emit()
+
 		if is_mine(pos) and shield_count > 0:
 			shield_count -= 1
 			has_flag_been_placed_while_shield_active = false
+
 		update_hud()
 		return
+
 	if get_used_cells(flag_layer).size() >= get_parent().TOTAL_MINES:
 		return
+
 	set_cell(flag_layer, pos, tile_id, flag_atlas)
 	flag_placed.emit()
-	if shield_count > 0 and not has_flag_been_placed_while_shield_active and not is_mine(pos):
-		has_flag_been_placed_while_shield_active = true
+
+	if shield_count > 0 and not is_mine(pos):
+		shield_count -= 1
+		print("Shield consumed on non-bomb tile! Remaining shields:", shield_count)
+
 	update_hud()
+
 
 func show_mines():
 	# Reveal all mines
@@ -288,6 +307,7 @@ func show_mines():
 	for shield_pos in get_used_cells(powerup_layer):
 		if is_grass(shield_pos):
 			erase_cell(grass_layer, shield_pos)
+
 
 func show_uncollected_powerups():
 	print("Showing uncollected shields...")
@@ -330,7 +350,7 @@ func highlight_surrounding_grass(center_cell_map_pos):
 func scan_mines(pos):
 	var surrounding_flags = 0
 	var flag_on_non_mine_nearby = false
-	var unflagged_mine_cell_nearby: Vector2i = Vector2i(-1, -1) 
+	var unflagged_mine_cell_nearby: Vector2i = Vector2i(-1, -1)
 	if shield_active:
 		for i in get_all_surrounding_cells(pos):
 			if is_flag(i):
@@ -339,7 +359,7 @@ func scan_mines(pos):
 					flag_on_non_mine_nearby = true
 			# Check specifically for an adjacent unflagged mine
 			if is_mine(i) and not is_flag(i):
-				unflagged_mine_cell_nearby = i 
+				unflagged_mine_cell_nearby = i
 	if unflagged_mine_cell_nearby != Vector2i(-1, -1):
 		if shield_active:
 			print("Shield saved you from chording into an unflagged mine!")
@@ -390,13 +410,14 @@ func update_hud():
 	var hud_state = "inactive"
 	if shield_count > 0:
 		shield_active = true
-		if has_flag_been_placed_while_shield_active:
-			hud_state = "active_flagged" 
+		if shield_count == 1:
+			hud_state = "active_fast"
 		else:
-			hud_state = "active"
+			hud_state = "active_steady"
 	else:
 		shield_active = false
 	get_tree().call_group("hud", "update_shield_display", hud_state)
+
 
 func is_mine(pos):
 	return get_cell_source_id(mine_layer, pos) != -1
