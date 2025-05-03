@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvb0uoxhjj7t1"]
+
+[ext_resource type="Script" path="res://host_join_hud.gd" id="1_68g2j"]
+[ext_resource type="Texture2D" uid="uid://6pdxggri1u3n" path="res://GameMode/HostJoinMenu.png" id="1_kaor7"]
+[ext_resource type="Texture2D" uid="uid://y21wslcshxh0" path="res://GameMode/buttonHost.png" id="2_xxt2o"]
+[ext_resource type="Texture2D" uid="uid://b0pswsw12k7xs" path="res://GameMode/buttonJoin.png" id="3_385q7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhtqd"]
+texture = ExtResource("1_kaor7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62nem"]
+texture = ExtResource("2_xxt2o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g6grl"]
+texture = ExtResource("3_385q7")
+
+[node name="HostJoinHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_68g2j")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_bhtqd")
+
+[node name="HostButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 476.0
+offset_right = 578.0
+offset_bottom = 723.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_62nem")
+
+[node name="JoinButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 1339.0
+offset_top = 481.0
+offset_right = 1689.0
+offset_bottom = 739.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g6grl")
+
+[connection signal="pressed" from="Panel/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="Panel/JoinButton" to="." method="_on_join_button_pressed"]

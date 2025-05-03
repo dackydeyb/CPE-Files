@@ -58,19 +58,25 @@ func get_current_state():
 
 func _on_tile_map_flag_placed():
 	remaining_mines -= 1
+	
 func _on_tile_map_flag_removed():
 	remaining_mines += 1
+	
 func _on_tile_map_end_game():
 	end_game(-1)
+	
 func _on_tile_map_game_won():
 	end_game(1)
+	
 func _on_game_over_restart():
 	new_game()
+	
 func _on_pause_button_pressed():
 	if current_state == GameState.PLAYING and !$PauseMenu.is_visible_in_tree():
 		current_state = GameState.PAUSED
 		get_tree().paused = true
 		$PauseMenu.show_pause_menu_animation()
+		
 func _on_pause_menu_requested_pause():
 	_on_pause_button_pressed() 
 

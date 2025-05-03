@@ -85,10 +85,10 @@ offset_bottom = 1080.0
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(0.988235, 1, 1, 0)
 layout_mode = 0
-offset_left = 594.0
-offset_top = 254.0
-offset_right = 1224.0
-offset_bottom = 748.0
+offset_left = 610.21
+offset_top = 305.15
+offset_right = 1240.24
+offset_bottom = 799.151
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2

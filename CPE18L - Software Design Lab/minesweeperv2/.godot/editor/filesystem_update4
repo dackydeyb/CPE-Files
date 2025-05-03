@@ -1,12 +1,10 @@
 res://MainMenuAssets/menu.tscn
 res://pause_menu.gdshader
-res://MainMenuAssets/creditsMenu.tscn
 res://GameMode/game_mode.tscn
-res://GameMode/difficulty.tscn
 res://main.tscn
 res://MainGameAssets/hard.tscn
-res://MainGameAssets/tile_map_hard.tscn
-res://MainGameAssets/tile_map.tscn
-res://MainGameAssets/hud.tscn
-res://tile_map_hard.gd
-res://MainGameAssets/hud.gd
+res://GameMode/multiplayer.tscn
+res://MultiplayerManager.tscn
+res://host_join_hud.tscn
+res://GameMode/MulHUD.gd
+res://GameOver.tscn
