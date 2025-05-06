@@ -222,7 +222,6 @@ func _input(event):
 						scan_mines(map_pos)
 						chording = false
 
-
 func process_left_click(pos):
 	total_clicks += 1
 	if total_clicks > 3: # This logic might need refinement for two players
@@ -282,7 +281,6 @@ func try_revert_variants():
 				set_cell(number_layer, cell, tile_id, shuffle_atlas[cnt - 1])
 			else:
 				set_random_variant(cell, cnt)
-
 
 func set_random_variant(cell, cnt):
 	var variants = [
@@ -437,10 +435,6 @@ func activate_shield():
 	shield_count += 1
 	shield_count_changed.emit(player_id, shield_count)
 	print("Player ", player_id, ": Shield activated! Count: ", shield_count)
-
-# Removed deactivate_shield as it's managed by shield_count
-
-# Removed update_hud() function from here, logic moved to Main
 
 #helper functions - Keep these for internal board checks
 func is_mine(pos):

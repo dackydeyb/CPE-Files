@@ -31,12 +31,17 @@ var current_state = GameState.PLAYING
 # References to the TileMaps
 @onready var tile_map_player1 = $TileMapPlayer1
 @onready var tile_map_player2 = $TileMapPlayer2
+
 @onready var game_over_canvas_layer = $GameOver
+# References to the win banners and restart button
+# Now, get the banners and button as children of the CanvasLayer node
 @onready var game_over_banner : Sprite2D = game_over_canvas_layer.get_node("GameOverBanner")
 @onready var you_win_banner : Sprite2D = game_over_canvas_layer.get_node("YouWinBanner")
+
 @onready var player1_wins_banner: Sprite2D = game_over_canvas_layer.get_node("Player1Wins")
 @onready var player2_wins_banner: Sprite2D = game_over_canvas_layer.get_node("Player2Wins")
 @onready var restart_button: Button = game_over_canvas_layer.get_node("RestartButton")
+
 @onready var mul_hud = $MulHUD
 
 func _ready():
@@ -52,12 +57,14 @@ func _ready():
 	tile_map_player1.end_game.connect(_on_board_end_game)
 	tile_map_player1.game_won.connect(_on_board_game_won)
 	tile_map_player1.shield_count_changed.connect(_on_board_shield_count_changed)
+	tile_map_player1.shield_count_changed.connect($MulHUD._on_shield_count_changed)
 
 	tile_map_player2.flag_placed.connect(_on_board_flag_placed)
 	tile_map_player2.flag_removed.connect(_on_board_flag_removed)
 	tile_map_player2.end_game.connect(_on_board_end_game)
 	tile_map_player2.game_won.connect(_on_board_game_won)
 	tile_map_player2.shield_count_changed.connect(_on_board_shield_count_changed)
+	tile_map_player2.shield_count_changed.connect($MulHUD._on_shield_count_changed)
 
 	$PauseMenu.requested_pause.connect(_on_pause_menu_requested_pause)
 	$PauseMenu.requested_resume.connect(_on_pause_menu_requested_resume)
@@ -66,6 +73,7 @@ func _ready():
 
 func new_game():
 	current_state = GameState.PLAYING
+
 	for player_id in player_data:
 		player_data[player_id].remaining_mines = player_data[player_id].mines
 		player_data[player_id].first_click = true
@@ -73,17 +81,22 @@ func new_game():
 		player_data[player_id].shield_count = 0
 		player_data[player_id].game_over = false
 		player_data[player_id].game_won = false
+
 	tile_map_player1.new_game()
 	tile_map_player2.new_game()
+
 	game_over_banner.hide()
 	you_win_banner.hide()
 	player1_wins_banner.hide()
 	player2_wins_banner.hide()
 	restart_button.hide()
+
 	mul_hud.reset_display(1)
 	mul_hud.reset_display(2)
+
 	await get_tree().create_timer(0.1).timeout
 	update_all_huds()
+
 	$GameOver.hide()
 	$PauseMenu.hide()
 	get_tree().paused = false

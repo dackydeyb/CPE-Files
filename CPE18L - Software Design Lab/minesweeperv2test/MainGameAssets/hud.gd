@@ -1,4 +1,4 @@
-# HUD script:
+# hud.gd
 extends Panel
 
 const shield_active_texture = preload("res://MainGameAssets/shieldActivated.png")        # Up arrow
@@ -61,7 +61,6 @@ func _set_shield_texture_by_state(state: String):
 			shield_status_indicator.texture = shield_inactive_texture
 		_:
 			shield_status_indicator.texture = shield_inactive_texture
-
 
 func _ready():
 	add_to_group("hud")

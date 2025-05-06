@@ -36,9 +36,6 @@ func _ready():
 	$TileMap.end_game.connect(_on_tile_map_end_game)
 	$TileMap.game_won.connect(_on_tile_map_game_won)
 
-	# Connect the restart signal from your CanvasLayer (assuming it's named "GameOver")
-	# The restart button's 'pressed' signal should be connected to _on_restart_button_pressed in your CanvasLayer script,
-	# which then emits the 'restart' signal.
 	$GameOver.restart.connect(_on_game_over_restart_signal) # Connect to the restart signal from GameOver
 
 func new_game():
@@ -113,17 +110,6 @@ func _on_tile_map_game_won():
 	
 func _on_game_over_restart():
 	new_game()
-
-# Removed the old _on_game_over_restart as the signal is now connected directly
-# func _on_game_over_restart():
-# 	new_game()
-
-# This function seems redundant with the end_game signal, keeping it commented for now
-# func _on_tile_map_hard_end_game():
-# 	print("Game Over! The end_game signal was received.")
-# 	$TileMap.show_mines()
-# 	$TileMap.show_uncollected_powerups() # <--- Add this line
-
 
 func _on_pause_button_pressed():
 	if current_state == GameState.PLAYING and !$PauseMenu.is_visible_in_tree():

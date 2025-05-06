@@ -80,7 +80,6 @@ func new_game():
 	await get_tree().create_timer(RESTART_FADE_IN_DELAY).timeout
 	update_hud() # This will now trigger the fade-in on new game/restart
 
-
 func generate_background():
 	for y in range(ROWS):
 		for x in range(COLS):
@@ -101,7 +100,6 @@ func generate_powerups():
 		attempts += 1
 	if placed < num_shields:
 		print("Warning: Could not place all %d shields. Placed %d." % [num_shields, placed])
-
 
 func generate_mines():
 	for i in range(get_parent().TOTAL_MINES):
@@ -201,7 +199,6 @@ func _input(event):
 						scan_mines(map_pos)
 						chording = false
 
-
 func process_left_click(pos):
 	total_clicks += 1
 	if total_clicks > 3:
@@ -259,7 +256,6 @@ func try_revert_variants():
 			else:
 				set_random_variant(cell, cnt)
 
-
 func set_random_variant(cell, cnt):
 	var variants = [
 		shuffle_atlas[cnt - 1],
@@ -297,7 +293,6 @@ func process_right_click(pos):
 
 	update_hud()
 
-
 func show_mines():
 	# Reveal all mines
 	for mine_pos in get_used_cells(mine_layer):
@@ -307,7 +302,6 @@ func show_mines():
 	for shield_pos in get_used_cells(powerup_layer):
 		if is_grass(shield_pos):
 			erase_cell(grass_layer, shield_pos)
-
 
 func show_uncollected_powerups():
 	print("Showing uncollected shields...")
