@@ -1,0 +1,58 @@
+[gd_scene load_steps=13 format=3 uid="uid://roob15vboiko"]
+
+[ext_resource type="Script" path="res://GameOver.gd" id="1_udo5m"]
+[ext_resource type="Texture2D" uid="uid://yp84w1gv7kjs" path="res://MainGameAssets/restartButton.png" id="2_o7kxj"]
+[ext_resource type="Texture2D" uid="uid://b1lkwtfotd3ed" path="res://MainGameAssets/youWin.png" id="2_s7k6k"]
+[ext_resource type="Texture2D" uid="uid://8jinjlk0y8vw" path="res://MainGameAssets/gameOver.png" id="3_64vfo"]
+[ext_resource type="Texture2D" uid="uid://ccbj6qd6qebpf" path="res://MainGameAssets/restartButtonHover.png" id="3_gfx8j"]
+[ext_resource type="Texture2D" uid="uid://dpda4av64opiu" path="res://MainGameAssets/restartButtonPressed.png" id="4_idslb"]
+[ext_resource type="Texture2D" uid="uid://decyml0f2tsgi" path="res://MainGameAssets/player1Wins.png" id="7_ey2gx"]
+[ext_resource type="Texture2D" uid="uid://vtdkgcjkjmjg" path="res://MainGameAssets/player2Wins.png" id="8_vfxyr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0c84i"]
+texture = ExtResource("2_o7kxj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kiji3"]
+texture = ExtResource("3_gfx8j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hname"]
+texture = ExtResource("4_idslb")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqi6p"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_udo5m")
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.396
+anchor_top = 0.758
+anchor_right = 0.534
+anchor_bottom = 0.866
+offset_left = 92.68
+offset_top = 116.36
+offset_right = 18.72
+offset_bottom = 140.72
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxTexture_0c84i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kiji3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hname")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eqi6p")
+
+[node name="YouWinBanner" type="Sprite2D" parent="."]
+position = Vector2(953, 615)
+texture = ExtResource("2_s7k6k")
+
+[node name="GameOverBanner" type="Sprite2D" parent="."]
+position = Vector2(953, 615)
+texture = ExtResource("3_64vfo")
+
+[node name="Player1Wins" type="Sprite2D" parent="."]
+position = Vector2(962, 625)
+texture = ExtResource("7_ey2gx")
+
+[node name="Player2Wins" type="Sprite2D" parent="."]
+position = Vector2(963, 626)
+texture = ExtResource("8_vfxyr")
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
