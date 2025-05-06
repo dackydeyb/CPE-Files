@@ -1,0 +1,184 @@
+[gd_scene load_steps=21 format=3 uid="uid://ddlblc5df4d3h"]
+
+[ext_resource type="Script" path="res://MainGameAssets/Main-Medium.gd" id="1_itogi"]
+[ext_resource type="PackedScene" uid="uid://ds81u7nml4x3s" path="res://MainGameAssets/hud.tscn" id="2_bo6kk"]
+[ext_resource type="Texture2D" uid="uid://b20jdc0mpayln" path="res://MainGameAssets/SinglePlayer - Just Right.png" id="3_iawkc"]
+[ext_resource type="Texture2D" uid="uid://2i46oohe8qcl" path="res://MainGameAssets/flag.png" id="4_je1rb"]
+[ext_resource type="Texture2D" uid="uid://c0ce0c7l8qp8i" path="res://MainGameAssets/timerNew.png" id="5_o86dn"]
+[ext_resource type="Texture2D" uid="uid://dwkb1dd3ymuft" path="res://MainGameAssets/trophy.png" id="6_2pkwu"]
+[ext_resource type="PackedScene" uid="uid://u4107wsc3yyn" path="res://MainGameAssets/tile_map_medium.tscn" id="7_cx36k"]
+[ext_resource type="Texture2D" uid="uid://dqwb37jx2yvwj" path="res://MainGameAssets/TilesetMedium.png" id="8_n3iwf"]
+[ext_resource type="PackedScene" uid="uid://roob15vboiko" path="res://GameOver.tscn" id="8_okfia"]
+[ext_resource type="PackedScene" uid="uid://bbtibwayj5fyi" path="res://pause_menu.tscn" id="9_klyqb"]
+[ext_resource type="Texture2D" uid="uid://b8u8te2171hwm" path="res://MainGameAssets/pauseButton.png" id="10_0m6np"]
+[ext_resource type="Texture2D" uid="uid://bsvi5lwt8du44" path="res://MainGameAssets/pauseHover.png" id="12_vtrqg"]
+[ext_resource type="Texture2D" uid="uid://d73cgn6pxh3n" path="res://MainGameAssets/pausePressed.png" id="13_wyg2x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyf46"]
+texture = ExtResource("3_iawkc")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hkq6i"]
+texture = ExtResource("8_n3iwf")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+1:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+1:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+7:6/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+3:5/0 = 0
+2:5/0 = 0
+6:4/0 = 0
+6:5/0 = 0
+3:6/0 = 0
+6:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mqypy"]
+tile_size = Vector2i(50, 50)
+sources/0 = SubResource("TileSetAtlasSource_hkq6i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8xbh5"]
+texture = ExtResource("10_0m6np")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f044d"]
+texture = ExtResource("12_vtrqg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_isytu"]
+texture = ExtResource("13_wyg2x")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j6dw"]
+
+[node name="Medium" type="Node2D"]
+script = ExtResource("1_itogi")
+
+[node name="HUD" parent="." instance=ExtResource("2_bo6kk")]
+
+[node name="Panel - Medium2" type="Panel" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.106
+anchor_bottom = 0.184
+offset_right = 1716.48
+offset_bottom = 881.28
+theme_override_styles/panel = SubResource("StyleBoxTexture_vyf46")
+
+[node name="Flag2" type="Sprite2D" parent="HUD"]
+position = Vector2(378, 107)
+texture = ExtResource("4_je1rb")
+
+[node name="RemainingMines2" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 43.0
+offset_right = 540.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 95
+text = "40"
+
+[node name="Timer2" type="Sprite2D" parent="HUD"]
+position = Vector2(1377, 111)
+texture = ExtResource("5_o86dn")
+
+[node name="Stopwatch2" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 1444.0
+offset_top = 45.0
+offset_right = 1667.0
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 95
+text = "0"
+
+[node name="Trophy2" type="Sprite2D" parent="HUD"]
+position = Vector2(855, 113)
+texture = ExtResource("6_2pkwu")
+
+[node name="Highscore2" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 43.0
+offset_right = 1079.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 95
+text = "100"
+
+[node name="TileMap" parent="." instance=ExtResource("7_cx36k")]
+position = Vector2(335.39, 298.13)
+tile_set = SubResource("TileSet_mqypy")
+layer_0/name = "Background"
+layer_1/name = "Mines"
+layer_2/name = "Numbers"
+layer_3/name = "Grass"
+layer_4/name = "Flags"
+layer_5/name = "Hovers"
+layer_5/enabled = true
+layer_5/modulate = Color(1, 1, 1, 1)
+layer_5/y_sort_enabled = false
+layer_5/y_sort_origin = 0
+layer_5/z_index = 0
+layer_5/tile_data = PackedInt32Array()
+
+[node name="GameOver" parent="." instance=ExtResource("8_okfia")]
+process_mode = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_klyqb")]
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 39.0
+offset_right = 177.0
+offset_bottom = 164.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_8xbh5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f044d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_isytu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0j6dw")
+
+[connection signal="end_game" from="TileMap" to="." method="_on_tile_map_end_game"]
+[connection signal="flag_placed" from="TileMap" to="." method="_on_tile_map_flag_placed"]
+[connection signal="flag_removed" from="TileMap" to="." method="_on_tile_map_flag_removed"]
+[connection signal="game_won" from="TileMap" to="." method="_on_tile_map_game_won"]
+[connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

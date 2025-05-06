@@ -1,0 +1,6 @@
+res://GameMode/game_mode.tscn
+res://pause_menu.gdshader
+res://MainGameAssets/hard.tscn
+res://GameMode/multiplayer.tscn
+res://MultiplayerManager.tscn
+res://host_join_hud.tscn

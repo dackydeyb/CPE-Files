@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbfjqkyyyv17b"]
+
+[ext_resource type="Script" path="res://MainMenuAssets/credits_menu.gd" id="1_6timg"]
+[ext_resource type="Texture2D" uid="uid://cc0dn0js8jsbf" path="res://MainMenuAssets/MainMenu.png" id="2_nt7od"]
+[ext_resource type="Texture2D" uid="uid://4jnsindprf73" path="res://MainMenuAssets/backButton.png" id="3_qt5yx"]
+[ext_resource type="Texture2D" uid="uid://csrgb7dfapuit" path="res://MainMenuAssets/backButtonHovered.png" id="3_yy55v"]
+[ext_resource type="Texture2D" uid="uid://b0b3l8tw320oc" path="res://MainMenuAssets/backButtonClicked.png" id="4_2lnfq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nrnbx"]
+texture = ExtResource("2_nt7od")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy55v"]
+texture = ExtResource("3_qt5yx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2lnfq"]
+texture = ExtResource("3_yy55v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcsh8"]
+texture = ExtResource("4_2lnfq")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2lnfq"]
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6timg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.896484
+offset_bottom = 0.0557861
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nrnbx")
+
+[node name="BackButton" type="Button" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0257965
+anchor_top = 0.0376813
+anchor_right = 0.102252
+anchor_bottom = 0.123429
+offset_left = 10.4476
+offset_top = 4.30209
+offset_right = 63.5845
+offset_bottom = 66.6898
+theme_override_styles/normal = SubResource("StyleBoxTexture_yy55v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2lnfq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wcsh8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2lnfq")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PanelContainer/Panel/BackButton" to="." method="_on_back_button_pressed"]
