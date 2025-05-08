@@ -116,9 +116,54 @@ func reset_display(player_id: int):
 	player_data.current_display_state = ""
 	# Reset shield count state
 	player_hud_elements[player_id].shield_count = 0
+	# Always reset mines label color to white
+	var label = player_hud_elements[player_id].mines_label
+	if label:
+		label.add_theme_color_override("font_color", Color(1,1,1))
 
 func _on_shield_count_changed(player_id: int, count: int):
 	var state = "inactive"
 	if count > 0:
 		state = "active_steady" if count > 1 else "active_fast"
 	update_shield_display(player_id, state)
+
+func blink_mines_label(player_id: int):
+	if not player_hud_elements.has(player_id):
+		return
+	var label = player_hud_elements[player_id].mines_label
+	if label == null:
+		return
+	# Kill any existing tween
+	if label.has_meta("mines_blink_tween"):
+		var old_tween = label.get_meta("mines_blink_tween")
+		if old_tween:
+			old_tween.kill()
+	label.set_meta("mines_blink_tween", null)
+	# Fade out
+	var tween = create_tween()
+	label.set_meta("mines_blink_tween", tween)
+	tween.tween_property(label, "modulate:a", 0.0, 0.25)
+	# Blink 3 times (fade in/out)
+	for i in range(3):
+		tween.tween_property(label, "modulate:a", 1.0, 0.15)
+		tween.tween_property(label, "modulate:a", 0.0, 0.15)
+	# Fade in at the end
+	tween.tween_property(label, "modulate:a", 1.0, 0.25)
+	# Clean up meta after
+	tween.tween_callback(func():
+		label.set_meta("mines_blink_tween", null)
+	)
+
+func set_mines_label_green(player_id: int):
+	if not player_hud_elements.has(player_id):
+		return
+	var label = player_hud_elements[player_id].mines_label
+	if label:
+		label.add_theme_color_override("font_color", Color(0,1,0))
+
+func set_mines_label_white(player_id: int):
+	if not player_hud_elements.has(player_id):
+		return
+	var label = player_hud_elements[player_id].mines_label
+	if label:
+		label.add_theme_color_override("font_color", Color(1,1,1))

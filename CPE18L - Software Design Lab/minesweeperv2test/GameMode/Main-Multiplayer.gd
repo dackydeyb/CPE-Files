@@ -142,7 +142,7 @@ func end_game(player_id: int, result: int):
 		)
 	)
 	if result == -1:
-		# reveal mines on the loser’s board immediately
+		# reveal mines on the loser's board immediately
 		if player_id == 1:
 			tile_map_player1.show_mines()
 			tile_map_player1.show_uncollected_powerups()
@@ -222,3 +222,139 @@ func update_all_huds():
 	for player_id in player_data:
 		mul_hud.update_mines_display(player_id, player_data[player_id].remaining_mines)
 		update_player_shield_hud(player_id)
+
+func try_transfer_bomb(from_player_id: int) -> bool:
+	# Public interface called by TileMapPlayer scripts when middle-click is used.
+	# Returns true if a bomb was successfully transferred, false otherwise.
+	if current_state != GameState.PLAYING:
+		return false
+
+	var from_board: TileMap
+	var to_board: TileMap
+	var to_player_id: int = 2 if from_player_id == 1 else 1
+
+	if from_player_id == 1:
+		from_board = tile_map_player1
+		to_board = tile_map_player2
+	else:
+		from_board = tile_map_player2
+		to_board = tile_map_player1
+
+	# Pick a random mine from the source board that is not flagged
+	var available_mines := []
+	for pos in from_board.mine_coords:
+		if not from_board.is_flag(pos):
+			available_mines.append(pos)
+	if available_mines.is_empty():
+		print("All mines on Player %d board are already flagged; cannot transfer." % from_player_id)
+		return false
+
+	var bomb_pos: Vector2i = available_mines.pick_random()
+	# Remove mine from source board
+	from_board.erase_cell(from_board.mine_layer, bomb_pos)
+	from_board.mine_coords.erase(bomb_pos)
+	from_board.mines_count -= 1
+
+	# Update numbers on source board
+	from_board.generate_numbers()
+
+	# Find a random empty cell on the destination board
+	var target_pos: Vector2i = Vector2i(-1, -1)
+	var attempts := 0
+	while attempts < 1000 and target_pos == Vector2i(-1, -1):
+		var rand_cell := Vector2i(randi_range(0, to_board.board_cols - 1), randi_range(0, to_board.board_rows - 1))
+		if not to_board.is_mine(rand_cell) and to_board.is_grass(rand_cell):
+			target_pos = rand_cell
+		else:
+			attempts += 1
+
+	if target_pos == Vector2i(-1, -1):
+		print("Failed to find empty cell on destination board for bomb transfer.")
+		# Revert the removal to keep game consistent
+		from_board.mine_coords.append(bomb_pos)
+		from_board.set_cell(from_board.mine_layer, bomb_pos, from_board.tile_id, from_board.mine_atlas)
+		from_board.mines_count += 1
+		from_board.generate_numbers()
+		return false
+
+	# Place bomb on destination board
+	to_board.mine_coords.append(target_pos)
+	to_board.set_cell(to_board.mine_layer, target_pos, to_board.tile_id, to_board.mine_atlas)
+	to_board.mines_count += 1
+
+	# Update numbers on destination board
+	to_board.generate_numbers()
+
+	# Update HUD / player data counts
+	if player_data.has(from_player_id):
+		player_data[from_player_id].remaining_mines -= 1
+	if player_data.has(to_player_id):
+		player_data[to_player_id].remaining_mines += 1
+
+	update_all_huds()
+	print("Bomb transferred from Player %d to Player %d" % [from_player_id, to_player_id])
+	return true
+
+func try_transfer_bomb_to_cell(from_player_id: int, target_pos: Vector2i) -> bool:
+	# Only allow if the target cell is covered and not a bomb
+	var from_board: TileMap
+	var to_board: TileMap
+	var to_player_id: int = 2 if from_player_id == 1 else 1
+	if from_player_id == 1:
+		from_board = tile_map_player1
+		to_board = tile_map_player2
+	else:
+		from_board = tile_map_player2
+		to_board = tile_map_player1
+
+	# Check if the target cell is covered and not a bomb
+	if not to_board.is_grass(target_pos) or to_board.is_mine(target_pos):
+		return false
+
+	# Find a random unflagged bomb on the eligible player's board
+	var available_mines := []
+	for pos in from_board.mine_coords:
+		if not from_board.is_flag(pos):
+			available_mines.append(pos)
+	if available_mines.is_empty():
+		return false
+	var removed_bomb_pos: Vector2i = available_mines.pick_random()
+
+	# Remove the bomb from the eligible player's board
+	from_board.erase_cell(from_board.mine_layer, removed_bomb_pos)
+	from_board.mine_coords.erase(removed_bomb_pos)
+	from_board.mines_count -= 1
+
+	# Add a bomb to the requested cell on the opponent's board
+	to_board.mine_coords.append(target_pos)
+	to_board.set_cell(to_board.mine_layer, target_pos, to_board.tile_id, to_board.mine_atlas)
+	to_board.mines_count += 1
+
+	# Update numbers for the 8 surrounding tiles of both the new and removed bomb
+	_update_numbers_around(from_board, removed_bomb_pos)
+	_update_numbers_around(to_board, target_pos)
+
+	# Update HUD / player data counts
+	if player_data.has(from_player_id):
+		player_data[from_player_id].remaining_mines -= 1
+	if player_data.has(to_player_id):
+		player_data[to_player_id].remaining_mines += 1
+
+	update_all_huds()
+	# Blink the mines label for both players
+	mul_hud.blink_mines_label(from_player_id)
+	mul_hud.blink_mines_label(to_player_id)
+	return true
+
+func _update_numbers_around(board, bomb_pos: Vector2i):
+	# Only update the 8 surrounding number tiles
+	for cell in board.get_all_surrounding_cells(bomb_pos):
+		if not board.is_mine(cell) and board.is_grass(cell):
+			var cnt := 0
+			for nb in board.get_all_surrounding_cells(cell):
+				if board.is_mine(nb):
+					cnt += 1
+			if cnt > 0:
+				board.set_cell(board.number_layer, cell, board.tile_id, board.number_atlas[cnt - 1])
+			else:
+				board.erase_cell(board.number_layer, cell)

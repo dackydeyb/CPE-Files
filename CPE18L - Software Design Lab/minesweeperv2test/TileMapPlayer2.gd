@@ -58,6 +58,10 @@ var shield_active : bool = false
 # Define the delay before the fade-in on game restart
 const RESTART_FADE_IN_DELAY = 0.5 # Adjust this value for restart delay
 
+var reveal_timestamps := []
+var can_bomb_transfer: bool = false
+var has_transferred_bomb: bool = false
+
 func generate_number_atlas():
 	var a := []
 	for i in range(8):
@@ -221,7 +225,21 @@ func _input(event):
 					if chording:
 						scan_mines(map_pos)
 						chording = false
-
+			elif event.button_index == MOUSE_BUTTON_MIDDLE:
+				if event.pressed:
+					# Only allow bomb transfer if Player1 is eligible and hasn't transferred yet
+					var main = get_parent()
+					if main.tile_map_player1.can_bomb_transfer and not main.tile_map_player1.has_transferred_bomb and is_grass(map_pos) and not is_mine(map_pos):
+						var success: bool = main.try_transfer_bomb_to_cell(1, map_pos)
+						if success:
+							print("Bomb transfer activated at %s for Player 1 (to Player 2)" % [map_pos])
+							main.tile_map_player1.has_transferred_bomb = true
+							main.tile_map_player1.can_bomb_transfer = false
+							main.mul_hud.set_mines_label_white(1)
+						else:
+							print("Bomb transfer failed (no available bomb to remove or other issue)")
+					else:
+						print("Bomb transfer not available for Player 1.")
 
 func process_left_click(pos):
 	total_clicks += 1
@@ -253,6 +271,16 @@ func process_left_click(pos):
 				if is_grass(neighbor) and not is_mine(neighbor) and not cells_to_reveal.has(neighbor) and not revealed_cells.has(neighbor):
 					cells_to_reveal.append(neighbor)
 	check_win_condition()
+
+	# Fast clearing detection (ignore first click)
+	if not get_parent().get_player_first_click(player_id):
+		var now = Time.get_ticks_msec() / 1000.0
+		reveal_timestamps.append(now)
+		if reveal_timestamps.size() > 5:
+			reveal_timestamps.pop_front()
+		if reveal_timestamps.size() == 5 and (now - reveal_timestamps[0] <= 1.0) and not can_bomb_transfer and not has_transferred_bomb:
+			can_bomb_transfer = true
+			get_parent().mul_hud.set_mines_label_green(player_id)
 
 func try_revert_variants():
 	for cell in get_used_cells(number_layer):
