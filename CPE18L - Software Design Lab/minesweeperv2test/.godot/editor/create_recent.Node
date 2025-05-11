@@ -1,3 +1,4 @@
+Panel
 Camera2D
 VideoStreamPlayer
 AnimatedSprite2D
@@ -9,7 +10,6 @@ Button
 TextureRect
 Timer
 Area2D
-Panel
 TileMap
 Node
 CanvasLayer

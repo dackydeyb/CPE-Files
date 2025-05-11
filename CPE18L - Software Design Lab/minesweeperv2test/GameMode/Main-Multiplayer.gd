@@ -142,13 +142,19 @@ func end_game(player_id: int, result: int):
 		)
 	)
 	if result == -1:
-		# reveal mines on the loser's board immediately
+		# Reveal bombs and powerups on the losing player's board immediately
 		if player_id == 1:
 			tile_map_player1.show_mines()
 			tile_map_player1.show_uncollected_powerups()
+			await get_tree().create_timer(6.0).timeout
+			tile_map_player2.show_mines()
+			tile_map_player2.show_uncollected_powerups()
 		else:
 			tile_map_player2.show_mines()
 			tile_map_player2.show_uncollected_powerups()
+			await get_tree().create_timer(6.0).timeout
+			tile_map_player1.show_mines()
+			tile_map_player1.show_uncollected_powerups()
 
 func get_current_state():
 	return current_state

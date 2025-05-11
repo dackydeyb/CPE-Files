@@ -93,6 +93,10 @@ func new_game():
 	shield_count = 0
 	shield_active = false
 	total_clicks = 0
+	# Reset bomb transfer state
+	reveal_timestamps.clear()
+	can_bomb_transfer = false
+	has_transferred_bomb = false
 	# Signal HUD update instead of calling directly
 	shield_count_changed.emit(player_id, shield_count)
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1lkwtfotd3ed"
-path="res://.godot/imported/youWin.png-1ffcc9c79916bb4ac2e8aa07b6e013b2.ctex"
+uid="uid://b4pqkjdk6u8t4"
+path="res://.godot/imported/pausePanel.png-ada90d63b3de8cd4943d52bb735c6a52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameAssets/youWin.png"
-dest_files=["res://.godot/imported/youWin.png-1ffcc9c79916bb4ac2e8aa07b6e013b2.ctex"]
+source_file="res://pause/pausePanel.png"
+dest_files=["res://.godot/imported/pausePanel.png-ada90d63b3de8cd4943d52bb735c6a52.ctex"]
 
 [params]
 

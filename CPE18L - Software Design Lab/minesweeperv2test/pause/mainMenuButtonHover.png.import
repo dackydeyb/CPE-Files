@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6pdxggri1u3n"
-path="res://.godot/imported/HostJoinMenu.png-14bfce54a748ad6662566deb73f8cf5d.ctex"
+uid="uid://cap6000tb6ppf"
+path="res://.godot/imported/mainMenuButtonHover.png-0cfa37fd8e23e76afb5c7975c3c3cdc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameMode/HostJoinMenu.png"
-dest_files=["res://.godot/imported/HostJoinMenu.png-14bfce54a748ad6662566deb73f8cf5d.ctex"]
+source_file="res://pause/mainMenuButtonHover.png"
+dest_files=["res://.godot/imported/mainMenuButtonHover.png-0cfa37fd8e23e76afb5c7975c3c3cdc5.ctex"]
 
 [params]
 

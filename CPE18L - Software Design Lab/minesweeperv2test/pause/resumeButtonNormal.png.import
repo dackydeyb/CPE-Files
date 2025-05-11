@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0pswsw12k7xs"
-path="res://.godot/imported/buttonJoin.png-2ac39af9ffa78e5a92725103ed0ba77d.ctex"
+uid="uid://dd6ukglggnawm"
+path="res://.godot/imported/resumeButtonNormal.png-fa2659e0476373f928cf5fbc15386dff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameMode/buttonJoin.png"
-dest_files=["res://.godot/imported/buttonJoin.png-2ac39af9ffa78e5a92725103ed0ba77d.ctex"]
+source_file="res://pause/resumeButtonNormal.png"
+dest_files=["res://.godot/imported/resumeButtonNormal.png-fa2659e0476373f928cf5fbc15386dff.ctex"]
 
 [params]
 

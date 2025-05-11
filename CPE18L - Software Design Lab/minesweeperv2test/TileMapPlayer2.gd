@@ -14,7 +14,7 @@ signal shield_count_changed(player_id, count) # Signal for shield updates
 const CELL_SIZE : int = 50 # Keep as const if all boards have the same cell size
 
 # Player Identifier
-@export var player_id : int = 1 # 1 for Player 1, 2 for Player 2
+@export var player_id : int = 2 # 1 for Player 1, 2 for Player 2
 
 # Mine count for this specific board
 @export var mines_count : int = 25
@@ -93,6 +93,10 @@ func new_game():
 	shield_count = 0
 	shield_active = false
 	total_clicks = 0
+	# Reset bomb transfer state
+	reveal_timestamps.clear()
+	can_bomb_transfer = false
+	has_transferred_bomb = false
 	# Signal HUD update instead of calling directly
 	shield_count_changed.emit(player_id, shield_count)
 

@@ -195,8 +195,6 @@ layer_7/tile_data = PackedInt32Array()
 process_mode = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("8_6dmyl")]
-offset_left = 68.0
-offset_right = 68.0
 
 [node name="PauseButton" type="Button" parent="."]
 offset_left = 29.0

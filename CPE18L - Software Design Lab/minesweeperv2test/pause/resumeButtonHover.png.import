@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y21wslcshxh0"
-path="res://.godot/imported/buttonHost.png-83478ff861650c943f871ecbc9c576ef.ctex"
+uid="uid://dku3tknppgpx5"
+path="res://.godot/imported/resumeButtonHover.png-144111e4e4e3f7c2115a76f68b60264b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameMode/buttonHost.png"
-dest_files=["res://.godot/imported/buttonHost.png-83478ff861650c943f871ecbc9c576ef.ctex"]
+source_file="res://pause/resumeButtonHover.png"
+dest_files=["res://.godot/imported/resumeButtonHover.png-144111e4e4e3f7c2115a76f68b60264b.ctex"]
 
 [params]
 
