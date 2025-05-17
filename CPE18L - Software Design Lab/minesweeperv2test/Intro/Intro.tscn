@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbybtyj5l52w5"]
+[gd_scene load_steps=11 format=3 uid="uid://dbybtyj5l52w5"]
 
 [ext_resource type="Script" path="res://Intro/Intro.gd" id="1_7xl6d"]
 [ext_resource type="Texture2D" uid="uid://c7m884ljd7o1f" path="res://Intro/intro.png" id="1_ao3bu"]
 [ext_resource type="Texture2D" uid="uid://cify52jl5o0hb" path="res://Intro/IntroPage1.png" id="2_rvn2q"]
 [ext_resource type="VideoStream" path="res://Intro/DedFinal.ogv" id="4_tgkv6"]
+[ext_resource type="AudioStream" uid="uid://cf4pciy18hh7k" path="res://Musics/Electrical Spark - Sound Effect for Editing.mp3" id="5_5bum3"]
 
 [sub_resource type="Animation" id="Animation_mxvax"]
 resource_name = "Black_In"
@@ -135,3 +136,8 @@ libraries = {
 position = Vector2(-3, 0)
 offset = Vector2(2.97, 0)
 anchor_mode = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5bum3")
+volume_db = 24.0
+autoplay = true

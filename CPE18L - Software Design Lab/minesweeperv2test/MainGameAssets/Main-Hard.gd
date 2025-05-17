@@ -7,6 +7,15 @@ var time_elapsed : float
 var remaining_mines : int
 var first_click : bool
 
+# Slowdown Power-up Variables
+var slowdown_active : bool = false
+var slowdown_duration : float = 5.0 # Duration of slowdown in seconds
+var slowdown_timer : float = 0.0 # Timer for active slowdown
+var slowdown_probability : float = 0.05 # 50% chance to activate
+var guaranteed_slowdowns_remaining : int = 5
+var original_stopwatch_color : Color
+var slowdown_tween : Tween # For fade effect
+
 enum GameState { PLAYING, PAUSED, GAME_OVER }
 var current_state = GameState.PLAYING
 
@@ -16,6 +25,9 @@ var current_state = GameState.PLAYING
 @onready var player1_banner : Sprite2D = get_node("GameOver/Player1Wins")
 @onready var player2_banner : Sprite2D = get_node("GameOver/Player2Wins")
 @onready var restart_button : Button = get_node("GameOver/RestartButton") # Get reference to the RestartButton
+@onready var gameOverSound : AudioStreamPlayer2D = get_node("GameOver/GameOverSound")
+@onready var stopwatch_label : Label # Reference to the stopwatch label in HUD
+@onready var freeze_effect_player : AudioStreamPlayer2D # Reference to the FreezeEffect sound player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,6 +50,20 @@ func _ready():
 
 	$GameOver.restart.connect(_on_game_over_restart_signal) # Connect to the restart signal from GameOver
 
+	# Get the stopwatch label and store its original color
+	stopwatch_label = $HUD.get_node("Stopwatch3")
+	if stopwatch_label:
+		original_stopwatch_color = stopwatch_label.modulate
+	else:
+		push_warning("Stopwatch label node not found in HUD. Color changes will not work.")
+
+	# Setup FreezeEffect player
+	freeze_effect_player = get_node("FreezeEffect")
+	if freeze_effect_player:
+		freeze_effect_player.stream = load("res://Musics/Freeze_Spell.ogg")
+	else:
+		push_warning("FreezeEffect node not found. Sound will not play.")
+
 func new_game():
 	current_state = GameState.PLAYING
 	first_click = true
@@ -53,6 +79,34 @@ func new_game():
 	$PauseMenu.hide()
 	get_tree().paused = false
 	$HUD.get_node("Highscore3").text = str(high_score)
+	# Reset slowdown power-up
+	slowdown_active = false
+	slowdown_timer = 0.0
+	guaranteed_slowdowns_remaining = 3 # Reset guaranteed uses
+	if stopwatch_label:
+		stopwatch_label.modulate = original_stopwatch_color # Reset color
+	if slowdown_tween and slowdown_tween.is_valid():
+		slowdown_tween.kill() # Stop any active tween
+
+func activate_slowdown_powerup():
+	if !slowdown_active:
+		slowdown_active = true
+		slowdown_timer = slowdown_duration
+		
+		if stopwatch_label:
+			if slowdown_tween and slowdown_tween.is_valid():
+				slowdown_tween.kill() # Kill existing tween before creating a new one
+			
+			slowdown_tween = create_tween()
+			slowdown_tween.set_loops() # Make the fade pulse repeat
+			# Fade to blue
+			slowdown_tween.tween_property(stopwatch_label, "modulate", Color.BLUE, 0.5).from(original_stopwatch_color).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			# Fade back to original color
+			slowdown_tween.tween_property(stopwatch_label, "modulate", original_stopwatch_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			
+		print("Slowdown activated with fade effect!") # For debugging
+		if freeze_effect_player:
+			freeze_effect_player.play()
 
 func end_game(result):
 	current_state = GameState.GAME_OVER
@@ -60,6 +114,13 @@ func end_game(result):
 	$PauseMenu.hide() # Ensure pause menu is hidden
 	player1_banner.hide()
 	player2_banner.hide()
+	gameOverSound.play()
+
+	if slowdown_tween and slowdown_tween.is_valid():
+		slowdown_tween.kill()
+	if stopwatch_label:
+		stopwatch_label.modulate = original_stopwatch_color
+
 	var timer = get_tree().create_timer(2.0) # 2-second delay
 	timer.timeout.connect(func():
 		restart_button.show()
@@ -85,7 +146,28 @@ func end_game(result):
 func _process(delta):
 	if current_state == GameState.PLAYING:
 		if !first_click:
-			time_elapsed += delta
+			if slowdown_active:
+				time_elapsed += delta / 2 # Timer slows down by half
+				slowdown_timer -= delta
+
+				if slowdown_timer <= 0:
+					slowdown_active = false
+					if slowdown_tween and slowdown_tween.is_valid():
+						slowdown_tween.kill()
+					if stopwatch_label:
+						stopwatch_label.modulate = original_stopwatch_color
+					print("Slowdown ended.") # For debugging
+			else:
+				time_elapsed += delta
+				# Potentially trigger slowdown powerup if not first click and not already active
+				# This is a placeholder for actual trigger logic (e.g., on mine reveal or item pickup)
+				if guaranteed_slowdowns_remaining > 0:
+					if randf() < 0.01: # Small chance to use a guaranteed one automatically, or tie to an event
+						activate_slowdown_powerup()
+						guaranteed_slowdowns_remaining -= 1
+				elif randf() < slowdown_probability / 60.0: # Spread probability over a minute roughly
+					activate_slowdown_powerup()
+
 		$HUD.get_node("RemainingMines3").text = str(remaining_mines)
 		$HUD.get_node("Stopwatch3").text = str(int(time_elapsed))
 

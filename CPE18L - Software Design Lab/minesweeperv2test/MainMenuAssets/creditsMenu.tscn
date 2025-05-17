@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://cbfjqkyyyv17b"]
 
 [ext_resource type="Script" path="res://MainMenuAssets/credits_menu.gd" id="1_6timg"]
-[ext_resource type="Texture2D" uid="uid://cc0dn0js8jsbf" path="res://MainMenuAssets/MainMenu.png" id="2_nt7od"]
+[ext_resource type="Texture2D" uid="uid://cq8uxwte31p4u" path="res://MainMenuAssets/creditsLeAuthor.jpg" id="2_367k7"]
 [ext_resource type="Texture2D" uid="uid://4jnsindprf73" path="res://MainMenuAssets/backButton.png" id="3_qt5yx"]
 [ext_resource type="Texture2D" uid="uid://csrgb7dfapuit" path="res://MainMenuAssets/backButtonHovered.png" id="3_yy55v"]
 [ext_resource type="Texture2D" uid="uid://b0b3l8tw320oc" path="res://MainMenuAssets/backButtonClicked.png" id="4_2lnfq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nrnbx"]
-texture = ExtResource("2_nt7od")
+texture = ExtResource("2_367k7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy55v"]
 texture = ExtResource("3_qt5yx")

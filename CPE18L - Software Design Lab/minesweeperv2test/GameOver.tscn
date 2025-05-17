@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://roob15vboiko"]
+[gd_scene load_steps=14 format=3 uid="uid://roob15vboiko"]
 
 [ext_resource type="Script" path="res://GameOver.gd" id="1_udo5m"]
 [ext_resource type="Texture2D" uid="uid://yp84w1gv7kjs" path="res://MainGameAssets/restartButton.png" id="2_o7kxj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpje5h85cyiuf" path="res://MainGameAssets/gameOverBanner.png" id="6_lo0h5"]
 [ext_resource type="Texture2D" uid="uid://cyhi2hna0o0j3" path="res://MainGameAssets/PLayer1WinBanner.png" id="7_mu7in"]
 [ext_resource type="Texture2D" uid="uid://6xilc4yryrq5" path="res://MainGameAssets/PLayer2WinBanner.png" id="8_cuyhw"]
+[ext_resource type="AudioStream" uid="uid://conhes7pr3a3a" path="res://Musics/shine-11-268907.mp3" id="9_22sv4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0c84i"]
 texture = ExtResource("2_o7kxj")
@@ -54,5 +55,8 @@ texture = ExtResource("7_mu7in")
 [node name="Player2Wins" type="Sprite2D" parent="."]
 position = Vector2(963, 626)
 texture = ExtResource("8_cuyhw")
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_22sv4")
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

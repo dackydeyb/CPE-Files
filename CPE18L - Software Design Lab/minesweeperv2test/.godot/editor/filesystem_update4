@@ -1,10 +1,3 @@
-res://pause_menu.tscn
-res://main.tscn
-res://MainGameAssets/medium.tscn
 res://MainGameAssets/hard.tscn
-res://GameMode/multiplayer.tscn
-res://GameOver.tscn
-res://GameMode/game_mode.tscn
-res://TileMapPlayer2.gd
-res://TileMapPlayer1.gd
-res://GameMode/Main-Multiplayer.gd
+res://GameOver.gd
+res://MainGameAssets/Main-Hard.gd

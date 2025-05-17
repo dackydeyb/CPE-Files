@@ -37,11 +37,10 @@ var current_state = GameState.PLAYING
 # Now, get the banners and button as children of the CanvasLayer node
 @onready var game_over_banner : Sprite2D = game_over_canvas_layer.get_node("GameOverBanner")
 @onready var you_win_banner : Sprite2D = game_over_canvas_layer.get_node("YouWinBanner")
-
 @onready var player1_wins_banner: Sprite2D = game_over_canvas_layer.get_node("Player1Wins")
 @onready var player2_wins_banner: Sprite2D = game_over_canvas_layer.get_node("Player2Wins")
 @onready var restart_button: Button = game_over_canvas_layer.get_node("RestartButton")
-
+@onready var gameOverSound : AudioStreamPlayer2D = get_node("GameOver/GameOverSound")
 @onready var mul_hud = $MulHUD
 
 func _ready():
@@ -117,6 +116,7 @@ func end_game(player_id: int, result: int):
 	get_tree().paused = true
 	$PauseMenu.hide()
 	$GameOver.show()
+	gameOverSound.play()
 
 	var winning_player_id: int
 	if result == 1:

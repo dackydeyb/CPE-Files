@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8kroma6ej0ks"
+path="res://.godot/imported/Solaris Cubes.mp3-5074077a9a87d3ccd79017f8d07ca6ed.mp3str"
+
+[deps]
+
+source_file="res://Musics/Solaris Cubes.mp3"
+dest_files=["res://.godot/imported/Solaris Cubes.mp3-5074077a9a87d3ccd79017f8d07ca6ed.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

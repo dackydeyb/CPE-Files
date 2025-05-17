@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b6mu5bmu1pwym"]
+[gd_scene load_steps=25 format=3 uid="uid://b6mu5bmu1pwym"]
 
 [ext_resource type="Script" path="res://MainGameAssets/Main-Hard.gd" id="1_2sngc"]
 [ext_resource type="PackedScene" uid="uid://ds81u7nml4x3s" path="res://MainGameAssets/hud.tscn" id="1_p2ero"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://b8u8te2171hwm" path="res://MainGameAssets/pauseButton.png" id="9_yplb7"]
 [ext_resource type="Texture2D" uid="uid://bsvi5lwt8du44" path="res://MainGameAssets/pauseHover.png" id="14_a1bo7"]
 [ext_resource type="Texture2D" uid="uid://d73cgn6pxh3n" path="res://MainGameAssets/pausePressed.png" id="15_qd3mo"]
+[ext_resource type="AudioStream" uid="uid://di5stchlply5r" path="res://Musics/Sipping in the Soft Breeze - HOYO-MiX.mp3" id="16_il2q6"]
+[ext_resource type="AudioStream" uid="uid://bqdoxh5ogbxtk" path="res://Musics/Freeze_Spell.ogg" id="17_g1q0n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fb5hy"]
 texture = ExtResource("2_aa5dl")
@@ -205,6 +207,14 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_k84jh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ue1ml")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vcc0r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rje8d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_il2q6")
+autoplay = true
+
+[node name="FreezeEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_g1q0n")
+autoplay = true
 
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

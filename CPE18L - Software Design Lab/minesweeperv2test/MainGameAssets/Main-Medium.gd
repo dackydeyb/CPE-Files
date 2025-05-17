@@ -16,6 +16,7 @@ var current_state = GameState.PLAYING
 @onready var player1_banner : Sprite2D = get_node("GameOver/Player1Wins")
 @onready var player2_banner : Sprite2D = get_node("GameOver/Player2Wins")
 @onready var restart_button : Button = get_node("GameOver/RestartButton") # Get reference to the RestartButton
+@onready var gameOverSound : AudioStreamPlayer2D = get_node("GameOver/GameOverSound")
 
 # Called when the node enters the scene tree for the first first_click.
 func _ready():
@@ -66,6 +67,7 @@ func end_game(result):
 	$PauseMenu.hide()
 	player1_banner.hide()
 	player2_banner.hide()
+	gameOverSound.play()
 	var timer = get_tree().create_timer(2.0) # 2-second delay
 	timer.timeout.connect(func():
 		restart_button.show()
