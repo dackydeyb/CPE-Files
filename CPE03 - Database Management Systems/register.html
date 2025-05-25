@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="register.css">
+    <link rel="icon" type="image/png" href="SLSU logo.png">
+<title>SLSU Student Online Portal</title>
+<script>
+function validateForm() {
+    var studentID = document.getElementById('studentID').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+    if (studentID == '') {
+        alert('Student ID cannot be blank.');
+        return false;
+    }
+    if (password != confirmPassword) {
+        alert('Passwords do not match.');
+        return false;
+    }
+    return true;
+}
+
+function showPassword() {
+    var password = document.getElementById('password');
+    var confirmPassword = document.getElementById('confirmPassword');
+    if (password.type === "password") {
+        password.type = "text";
+        confirmPassword.type = "text";
+    } else {
+        password.type = "password";
+        confirmPassword.type = "password";
+    }
+}
+</script>
+</head>
+
+<body>
+
+<hr>
+
+<div id="university-name">
+    <h1>Southern Luzon State University</h1>
+    <img id="SLSU-logo" src="SLSU logo.png" alt="SLSU logo">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Patua+One&display=swap" rel="stylesheet">
+</div>
+
+<div>
+    <center>
+    <form class="form" action="register.php" method="post" onsubmit="return validateForm()">
+        <p class="form-title">Create an Account</p>
+        <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+        
+        <div class="input-container">
+            <input type="text" placeholder="Enter Student ID" id="studentID" name="studentID">
+        </div>
+
+        <div class="input-container">
+            <input type="password" placeholder="Create a strong password" id="password" name="password">
+        </div>
+
+        <div class="input-container">
+            <input type="password" placeholder="Confirm password" id="confirmPassword" name="confirmPassword">
+        </div>
+
+        <input type="checkbox" onclick="showPassword()"> Show Password
+
+        <button type="submit" class="submit">
+            Register
+        </button>
+    </form>
+    </center>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>SLSU Online Portal</title>
+    <link rel="stylesheet" href="StudentFormCSS.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="navbar">
+      <div class="logo">
+        <img id="SLSU-logo" src="SLSU logo.png" alt="SLSU logo">
+        <h1>Southern Luzon State University</h1>
+      </div>
+
+      <ul>
+        <li><a href="Database Act Proposal.html">Home</a></li>
+        <li><a href="#">Vision & Mission</a></li>
+        <li><a href="#">Academic Calendar</a></li>
+        <li><a href="#">Location</a></li>
+      </ul>
+    </div>
+
+  <div class="container">
+    <div class="title">Enter the Student Details to Proceed</div>
+        <div class="content">
+
+            <form action="studentForm.php" method="post" id="studentForm">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">First Name</span>
+                        <input type="text" name="firstName" placeholder="Juan" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Middle Initial</span>
+                        <input type="text" name="middleInitial" placeholder="A" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Last Name</span>
+                        <input type="text" name="lastName" placeholder="Dela Cruz" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Student No.</span>
+                        <input type="text" name="studentNo" placeholder="22L-XXXX" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Curricular Program</span>
+                        <select name="curricularProgram">
+                            <option value="">Select Program</option>
+                            <option value="BSCE">BS Civil Engineering</option>
+                            <option value="BSCpE">BS Computer Engineering</option>
+                            <option value="BSEE">BS Electrical Engineering</option>
+                            <option value="BSECE">BS Electronics Engineering</option>
+                            <option value="BSIE">BS Industrial Engineering</option>
+                            <option value="BSME">BS Mechanical Engineering</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">SLSU Email</span>
+                        <input type="email" name="email" value="@slsu.edu.ph" placeholder="XXX@slsu.edu.ph" required>
+                    </div>
+                </div>
+
+                <div class="button">
+                    <input type="submit" name="register" value="Register">
+                    <input type="submit" name="update" value="Update">
+                    <input type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure you want to delete this student?')">
+                    <input type="button" value="Clear Form" onclick="clearForm()">
+                    <a href="localhost/schoolkit/index.php"><input type="button" value="Next"></a>
+                </div>
+        </form>
+        
+        <script>
+            function clearForm() {
+    document.getElementById("studentForm").reset(); // Reset the form
+}
+
+document.getElementById('StudentForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from being submitted normally
+
+    let formData = new FormData(this);
+
+    fetch('studentForm.php', {
+        method: 'POST',
+        body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            document.getElementById('StudentForm').reset(); // Reset the form
+        })
+        .catch(error => console.error('Error:', error));
+
+});
+
+        </script>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>SLSU Online Portal</title>
+    <link rel="stylesheet" href="Professor Form.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="navbar">
+      <div class="logo">
+        <img id="SLSU-logo" src="SLSU logo.png" alt="SLSU logo">
+        <h1>Southern Luzon State University</h1>
+      </div>
+
+      <ul>
+        <li><a href="Database Act Proposal.html">Home</a></li>
+        <li><a href="#">Vision & Mission</a></li>
+        <li><a href="#">Academic Calendar</a></li>
+        <li><a href="#">Location</a></li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="title">Professor Details</div>
+          <div class="content">
+
+              <form action="ProfessorForm.php" method="post">
+                  <div class="user-details">
+
+                  <div class="input-box">
+                      <span class="details">Professor's Name</span>
+                      <input type="text" name="professorName" placeholder="Professor's Name" required>
+                  </div>
+  
+                  <div class="input-box">
+                    <span class="details">Professor's Email</span>
+                    <input type="email" name="professorEmail" placeholder="Professor's Email" required>
+                  </div>
+  
+                <div class="category">
+                  <input id="dot-1" type="radio" name="professorDept" value="ArtAndSciences">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        College of Art and Sciences
+                    </label>
+
+                  <input id="dot-2" type="radio" name="professorDept" value="Engineering">
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        College of Engineering
+                    </label>
+                </div> 
+  
+          <div class="input-box">
+            <span class="details">Select Course Code and Course Title</span>
+            <select>
+              <option value="">---</option>
+                    <option value="BES01">BES01 - Engineering Economics</option>
+                    <option value="BES04">BES04 - Technopreneurship 101</option>
+                    <option value="CAD01">CAD01 - Computer-Aided Drafting</option>
+                    <option value="CHM01a">CHM01a - Chemistry for Engineers (Lab)</option>
+                    <option value="COE01">COE01 - Computer Engineering as a Discipline</option>
+                    <option value="CPE01">CPE01 - Discrete Mathematics</option>
+                    <option value="CPE02">CPE02 - Programming and Logic Design</option>
+                    <option value="CPE03">CPE03 - Database Management Systems</option>
+                    <option value="CPE04">CPE04 - Numerical Methods</option>
+                    <option value="CPE05">CPE05 - Object-Oriented Programming</option>
+                    <option value="CPE06">CPE06 - On-Line Technologies</option>
+                    <option value="CPE07">CPE07 - Logic Circuits and Design</option>
+                    <option value="CPE07L">CPE07L - Logic Circuits and Design (Lab)</option>
+                    <option value="CPE08">CPE08 - Computer Engineering Drafting & Design</option>
+                    <option value="CPE09">CPE09 - Introduction to HDL</option>
+                    <option value="CPE10">CPE10 - Fundamentals of Mixed Signals & Sensors</option>
+                    <option value="CPE11">CPE11 - Feedback and Control Systems</option>
+                    <option value="CPE12">CPE12 - Data and Digital Communications</option>
+                    <option value="CPE13">CPE13 - Data Structure and Algorithms</option>
+                    <option value="CPE14">CPE14 - Basic Occupational Health and Safety</option>
+                    <option value="CPE15">CPE15 - Cognate/Professional Course 1</option>
+                    <option value="CPE16">CPE16 - Computer Networks & Security</option>
+                    <option value="CPE16L">CPE16L - Computer Networks & Security (Lab)</option>
+                    <option value="CPE17">CPE17 - Operating Systems</option>
+                    <option value="CPE18">CPE18 - Software Design</option>
+                    <option value="CPE18L">CPE18L - Software Design (Lab)</option>
+                    <option value="CPE19">CPE19 - Microprocessors</option>
+                    <option value="CPE19L">CPE19L - Microprocessors (Lab)</option>
+                    <option value="CPE20">CPE20 - Methods of Research</option>
+                    <option value="CPE21">CPE21 - Cognate/Professional Course 2</option>
+                    <option value="CPE22">CPE22 - Digital Signal Processing</option>
+                    <option value="CPE22L">CPE22L - Digital Signal Processing (Lab)</option>
+                    <option value="CPE23">CPE23 - Computer Architecture & Organization</option>
+                    <option value="CPE23L">CPE23L - Computer Architecture & Organization (Lab)</option>
+                    <option value="CPE24">CPE24 - Embedded Systems</option>
+                    <option value="CPE24L">CPE24L - Embedded Systems (Lab)</option>
+                    <option value="CPE25">CPE25 - CpE Practice and Design 1</option>
+                    <option value="CPE26">CPE26 - CpE Laws and Professional Practice</option>
+                    <option value="CPE27">CPE27 - Emerging Technologies in CpE</option>
+                    <option value="CPE28">CPE28 - Cognate/Professional Course 3</option>
+                    <option value="CPE29">CPE29 - Seminars and Field Trips</option>
+                    <option value="CPE30">CPE30 - CpE Practice and Design 2</option>
+                    <option value="ECE01">ECE01 - Fundamentals of Electronic Circuits</option>
+                    <option value="ECE01L">ECE01L - Fundamentals of Electronic Circuits (Lab)</option>
+                    <option value="EEN01">EEN01 - Fundamentals of Electrical Circuits</option>
+                    <option value="EEN01L">EEN01L - Fundamentals of Electrical Circuits (Lab)</option>
+                    <option value="GEC01">GEC01 - The Life and Works of Rizal</option>
+                    <option value="GEC02">GEC02 - Understanding the Self</option>
+                    <option value="GEC03">GEC03 - Readings in Philippine History</option>
+                    <option value="GEC04">GEC04 - The Contemporary World</option>
+                    <option value="GEC05">GEC05 - Mathematics in the Modern World</option>
+                    <option value="GEC06">GEC06 - Purposive Communication</option>
+                    <option value="GEC07">GEC07 - Art Appreciation</option>
+                    <option value="GEC08">GEC08 - Science, Technology and Society</option>
+                    <option value="GEC09">GEC09 - Ethics</option>
+                    <option value="GEC10">GEC10 - Kontekstwalisadong Komunikasyon sa Filipino</option>
+                    <option value="GEC11">GEC11 - Filipino sa Iba't Ibang Disiplina</option>
+                    <option value="GEC13">GEC13 - Literature of the Philippines</option>
+                    <option value="MAT04">MAT04 - Calculus 1 (Differential)</option>
+                    <option value="MAT05">MAT05 - Calculus 2 (Integral)</option>
+                    <option value="MAT07">MAT07 - Differential Equations</option>
+                    <option value="MAT08">MAT08 - Engineering Data Analysis</option>
+                    <option value="NSTP01">NSTP01 - National Service Training Program 1</option>
+                    <option value="NSTP2">NSTP2 - National Service Training Program 2</option>
+                    <option value="OJT">OJT - On-the-Job Training (240 hrs.)</option>
+                    <option value="PEO01">PEO01 - Physical Fitness</option>
+                    <option value="PEO02">PEO02 - Rhythmic Activities</option>
+                    <option value="PEO03">PEO03 - Individual/Dual Games/Sports</option>
+                    <option value="PEO04">PEO04 - Team Sports/Games</option>
+                    <option value="PHY03">PHY03 - Physics for Engineers</option>
+                    <option value="PHY03L">PHY03L - Physics for Engineers (Lab)</option>
+            </select>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Select Grade</span>
+            <select>
+              <option value="0">---</option>
+              <option value="1.00">1.00</option>
+              <option value="1.25">1.25</option>
+              <option value="1.50">1.50</option>
+              <option value="1.75">1.75</option>
+              <option value="2.00">2.00</option>
+              <option value="2.25">2.25</option>
+              <option value="2.50">2.50</option>
+              <option value="2.75">2.75</option>
+              <option value="3.00">3.00</option>
+              <option value="4.00">4.00</option>
+              <option value="5.00">5.00</option>
+            </select>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Term</span>
+            <select>
+              <option value="0">---</option>
+              <option value="1st Term">1st Term</option>
+              <option value="2nd Term">2nd Term</option>
+            </select>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Year</span>
+            <select>
+              <option value="0">---</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="button">
+          <input type="button" value="Add Grade" onclick="addGradeSection()">
+          <input type="submit" value="Remove Grade">
+          <input type="submit" value="Update">
+          <input type="button" value="Clear Form" onclick="clearForm()">
+          <a href="Student Form.html"><input type="button" value="Back"></a>
+        </div>
+
+      </form>
+  </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>SLSU Online Portal</title>
+    <link rel="stylesheet" href="Query.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="navbar">
+      <div class="logo">
+        <img id="SLSU-logo" src="SLSU logo.png" alt="SLSU logo">
+        <h1>Southern Luzon State University</h1>
+      </div>
+
+      <ul>
+        <li><a href="Database Act Proposal.html">Home</a></li>
+        <li><a href="#">Vision & Mission</a></li>
+        <li><a href="#">Academic Calendar</a></li>
+        <li><a href="#">Location</a></li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <h1 class="h1">Grades</h1>
+
+      <div class="search-wrapper">
+        <div class="input-group">
+            <label for="payment">Student Department</label>
+            <select>
+                <option value="">Select Program</option>
+                <!-- Your program options -->
+            </select>
+        </div>
+    
+        <div class="input-group">
+            <label for="search">Search Student No.:</label>
+            <input type="search" id="search" data-search>
+        </div>
+    </div>
+
+      <div class="scroll-bar">
+          <div class="user-cards">
+              <!-- Adjusted table structure -->
+              <div class="card">
+                <table>
+                  <thead>
+                      <tr>
+                          <th>Student_ID</th>
+                          <th>Student_No</th>
+                          <th>First_Name</th>
+                          <th>Middle_Initial</th>
+                          <th>Last_Name</th>
+                          <th>SLSU_Email</th>
+                          <th>Program</th>
+                          <th>Faculty_ID</th>
+                          <th>Professor_Name</th>
+                          <th>Professor_Email</th>
+                          <th>Professor_Dept</th>
+                          <th>Course_ID</th>
+                          <th>Term</th>
+                          <th>Year</th>
+                          <th>Grade_ID</th>
+                          <th>Grade</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>1</td>
+                          <td>22L-0721</td>
+                          <td>Dave Jhared</td>
+                          <td>G</td>
+                          <td>Paduada</td>
+                          <td>djgpaduada@slsu.edu.ph</td>
+                          <td>BS Computer Engineering</td>
+                          <td>Faculty_ID</td>
+                          <td>Professor_Name</td>
+                          <td>Professor_Email</td>
+                          <td>Professor_Dept</td>
+                          <td>Course_ID</td>
+                          <td>Term</td>
+                          <td>Year</td>
+                          <td>Grade_ID</td>
+                          <td>Grade</td>
+                          <td>
+                              <button>Edit</button>
+                              <button>Delete</button>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>22L-0531</td>
+                        <td>John Oshrick</td>
+                        <td>S</td>
+                        <td>Manago</td>
+                        <td>jomanago@slsu.edu.ph</td>
+                        <td>BS Computer Engineering</td>
+                        <td>Faculty_ID</td>
+                        <td>Professor_Name</td>
+                        <td>Professor_Email</td>
+                        <td>Professor_Dept</td>
+                        <td>Course_ID</td>
+                        <td>Term</td>
+                        <td>Year</td>
+                        <td>Grade_ID</td>
+                        <td>Grade</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>24C-0270</td>
+                      <td>Ziedrick</td>
+                      <td>M</td>
+                      <td>Suario</td>
+                      <td>zmsuario@slsu.edu.ph</td>
+                      <td>BS Computer Engineering</td>
+                      <td>Faculty_ID</td>
+                      <td>Professor_Name</td>
+                      <td>Professor_Email</td>
+                      <td>Professor_Dept</td>
+                      <td>Course_ID</td>
+                      <td>Term</td>
+                      <td>Year</td>
+                      <td>Grade_ID</td>
+                      <td>Grade</td>
+                      <td>
+                          <button>Edit</button>
+                          <button>Delete</button>
+                      </td>
+                  </tr>
+                      <!-- Additional rows with student information can be added similarly -->
+                  </tbody>
+              </table>
+              
+            </div>
+      </div>
+  </div>
+    </div>
+    </div>
+    </div>
+
+  <div id="data"></div>
+</html>
