@@ -625,3 +625,4 @@ class Instructions {
         frame.setVisible(true);
     }
 }
+ 

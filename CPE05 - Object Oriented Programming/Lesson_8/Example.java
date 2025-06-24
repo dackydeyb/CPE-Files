@@ -8,7 +8,7 @@ public class Example {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 400);
         frame.setLocationRelativeTo(null);
-
+ 
         // Create the main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout(5,10));
 

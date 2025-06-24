@@ -11,7 +11,7 @@ public class cardpreviewsize {
         ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
         frame.setIconImage(icon.getImage());
 
-
+ 
 
         frame.setVisible(true);
     }

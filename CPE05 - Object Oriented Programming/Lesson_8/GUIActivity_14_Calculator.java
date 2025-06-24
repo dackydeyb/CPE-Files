@@ -8,7 +8,7 @@ public class GUIActivity_14_Calculator {
         JFrame frame = new JFrame("Main Solver+");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(720, 900);
-
+ 
         //Change the icon of the frame
         ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\March 7th_6.png");
         frame.setIconImage(icon.getImage());

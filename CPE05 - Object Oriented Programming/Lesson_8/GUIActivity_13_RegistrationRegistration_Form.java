@@ -138,7 +138,7 @@ public class GUIActivity_13_RegistrationRegistration_Form {
         JButton button1 = new JButton("Submit");
         JButton button2 = new JButton("Reset");
         JButton button3 = new JButton("Validate");
-
+ 
         button1.setBackground(Color.GREEN);
         button2.setBackground(Color.RED);
         button3.setBackground(Color.ORANGE);

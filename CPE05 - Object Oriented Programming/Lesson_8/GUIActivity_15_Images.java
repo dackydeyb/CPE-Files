@@ -115,7 +115,7 @@ public class GUIActivity_15_Images {
         fileMenu.add(propertiesItem);
         fileMenu.addSeparator();
         fileMenu.add(exitItem);
-
+ 
         // Add the "File" menu to the menu bar
         menuBar.add(fileMenu);
 
