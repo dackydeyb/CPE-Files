@@ -12,7 +12,7 @@ public class MainPage {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        ImageIcon icon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\9_Clara.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\9_Clara.png");
         frame.setIconImage(icon.getImage());
 
         // Create the main panel with a background image
@@ -20,7 +20,7 @@ public class MainPage {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\background.png");
+                ImageIcon backgroundImage = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\background.png");
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -31,7 +31,7 @@ public class MainPage {
         JPanel northDisplayPanel = new JPanel(new GridLayout(1, 1));
         northDisplayPanel.setOpaque(false); // Make it transparent
 
-        ImageIcon northBackgroundImage = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\title.png");
+        ImageIcon northBackgroundImage = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\title.png");
         JLabel northBackgroundLabel = new JLabel(northBackgroundImage);
         northDisplayPanel.setBorder(BorderFactory.createEmptyBorder(70, 0, 0, 0));
         northDisplayPanel.add(northBackgroundLabel);

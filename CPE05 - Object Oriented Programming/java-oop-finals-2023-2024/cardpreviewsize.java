@@ -8,7 +8,7 @@ public class cardpreviewsize {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        ImageIcon icon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
         frame.setIconImage(icon.getImage());
 
 

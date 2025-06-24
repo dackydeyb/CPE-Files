@@ -13,7 +13,7 @@ public class panelPractice {
             @Override
             protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            ImageIcon backgroundImage = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\Male_Preview_YellowCard.png");
+            ImageIcon backgroundImage = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\Male_Preview_YellowCard.png");
             g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };

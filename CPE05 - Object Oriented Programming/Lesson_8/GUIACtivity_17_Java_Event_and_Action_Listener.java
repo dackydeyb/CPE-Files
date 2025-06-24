@@ -23,7 +23,7 @@ public class GUIACtivity_17_Java_Event_and_Action_Listener {
         frame.setSize(500, 700);
         frame.setLocationRelativeTo(null);
 
-        ImageIcon icon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/March 7th_6.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\March 7th_6.png");
         frame.setIconImage(icon.getImage());
 
         // Menu Bar
@@ -33,12 +33,12 @@ public class GUIACtivity_17_Java_Event_and_Action_Listener {
         JMenu fileMenu = new JMenu("File");
             fileMenu.setMnemonic(KeyEvent.VK_F);
         
-        ImageIcon newIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/NewWindow.png");
+        ImageIcon newIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\NewWindow.png");
         Image image = newIcon.getImage();
         Image resizedImage = image.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         newIcon = new ImageIcon(resizedImage);
 
-        ImageIcon exitIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/close.png");
+        ImageIcon exitIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\close.png");
         Image exitImage = exitIcon.getImage();
         Image resizedExitImage = exitImage.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         exitIcon = new ImageIcon(resizedExitImage);
@@ -55,12 +55,12 @@ public class GUIACtivity_17_Java_Event_and_Action_Listener {
         JMenu historyMenu = new JMenu("History");
         historyMenu.setMnemonic(KeyEvent.VK_I);
 
-        ImageIcon historyIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/history.png");
+        ImageIcon historyIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\history.png");
         Image historyImage = historyIcon.getImage();
         Image resizedHistoryImage = historyImage.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         historyIcon = new ImageIcon(resizedHistoryImage);
 
-        ImageIcon clearHistoryIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/broom.png");
+        ImageIcon clearHistoryIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\broom.png");
         Image clearHistoryImage = clearHistoryIcon.getImage();
         Image resizedClearHistoryImage = clearHistoryImage.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         clearHistoryIcon = new ImageIcon(resizedClearHistoryImage);
@@ -121,22 +121,22 @@ public class GUIACtivity_17_Java_Event_and_Action_Listener {
         JMenu helpMenu = new JMenu("Help");
         helpMenu.setMnemonic(KeyEvent.VK_H);
 
-        ImageIcon aboutIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/information.png");
+        ImageIcon aboutIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\information.png");
         Image aboutImage = aboutIcon.getImage();
         Image resizedAboutImage = aboutImage.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         aboutIcon = new ImageIcon(resizedAboutImage);
 
-        ImageIcon gCashIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/gcash.png");
+        ImageIcon gCashIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\gcash.png");
         Image gCashImage = gCashIcon.getImage();
         Image resizedGCashImage = gCashImage.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         gCashIcon = new ImageIcon(resizedGCashImage);
 
-        ImageIcon paypalIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/paypal.png");
+        ImageIcon paypalIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\paypal.png");
         Image paypalImage = paypalIcon.getImage();
         Image resizedPaypalImage = paypalImage.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         paypalIcon = new ImageIcon(resizedPaypalImage);
 
-        ImageIcon landbankIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/landbank.png");
+        ImageIcon landbankIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\landbank.png");
         Image landbankImage = landbankIcon.getImage();
         Image resizedLandbankImage = landbankImage.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         landbankIcon = new ImageIcon(resizedLandbankImage);
@@ -668,7 +668,7 @@ public class GUIACtivity_17_Java_Event_and_Action_Listener {
 
     // Save the results to a file
     private static void saveResultsOutside() throws Exception {
-        File file = new File("Lesson_8/GUIActivity_17_Calculation_History.txt");
+        File file = new File("CPE05 - Object Oriented Programming/Lesson_8/GUIActivity_17_Calculation_History.txt");
 
         PrintWriter writer = new PrintWriter(new FileWriter(file, true));
         writer.println("   Hypotenuse: " + side_c_JTextField.getText());

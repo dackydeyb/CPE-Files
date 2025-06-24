@@ -32,7 +32,7 @@ public class YellowCard {
         yellowCardFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         yellowCardFrame.setLocationRelativeTo(null);
 
-        ImageIcon icon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
         yellowCardFrame.setIconImage(icon.getImage());
 
         // Create the main panel with a background image
@@ -40,7 +40,7 @@ public class YellowCard {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanStart.png");
+                ImageIcon backgroundImage = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanStart.png");
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -104,14 +104,14 @@ class LucbanCardProgram {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        ImageIcon icon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
         frame.setIconImage(icon.getImage());
 
         JPanel centerPanel = new JPanel(new GridLayout(1, 3, 0, 50)) {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\Lucban_Option.png");
+                ImageIcon backgroundImage = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\Lucban_Option.png");
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -122,7 +122,7 @@ class LucbanCardProgram {
         JPanel leftCenterPanel = new JPanel(new GridLayout(1, 1)); 
         leftCenterPanel.setOpaque(false);
         JButton PayBillButton = new JButton();
-        PayBillButton.setIcon(new ImageIcon("java-oop-finals-2023-2024\\Pictures\\PayBill-Button.png"));
+        PayBillButton.setIcon(new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\PayBill-Button.png"));
         PayBillButton.setContentAreaFilled(false); // Make the button transparent
         PayBillButton.setBorderPainted(false); // Remove the button border
         PayBillButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,7 +144,7 @@ class LucbanCardProgram {
         middleCenterPanel.setOpaque(false);
         JButton YellowCardButton = new JButton();
         YellowCardButton.setBorderPainted(false);
-        YellowCardButton.setIcon(new ImageIcon("java-oop-finals-2023-2024\\Pictures\\Button_YellowCard.png"));
+        YellowCardButton.setIcon(new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\Button_YellowCard.png"));
         // Mouse listeners to the YellowCardButton
         YellowCardButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -169,7 +169,7 @@ class LucbanCardProgram {
 
         JButton BlueCardButton = new JButton();
         BlueCardButton.setBorderPainted(false);
-        BlueCardButton.setIcon(new ImageIcon("java-oop-finals-2023-2024\\Pictures\\Button_BlueCard.png"));
+        BlueCardButton.setIcon(new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\Button_BlueCard.png"));
         // Mouse listeners to the BlueCardButton
         BlueCardButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -217,7 +217,7 @@ class LucbanCardProgram {
             public void actionPerformed(ActionEvent e) {
                 String enteredID = checkCardField.getText().trim();
                 boolean found = false;
-                String filePath = "java-oop-finals-2023-2024/Saved_Details/YellowCard.txt";
+                String filePath = "CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024/Saved_Details/YellowCard.txt";
 
                 try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
                     String line;
@@ -236,7 +236,7 @@ class LucbanCardProgram {
 
                 if (found) {
                     // Load the original image
-                    ImageIcon originalIcon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\march-7th-cheer.gif");
+                    ImageIcon originalIcon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\march-7th-cheer.gif");
                     // Resize the image
                     Image scaledImage = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -244,7 +244,7 @@ class LucbanCardProgram {
                     UIManager.put("OptionPane.messageFont", boldFont);
                     JOptionPane.showMessageDialog(frame, "ID No.: " + enteredID + " is registered.", "Success", JOptionPane.INFORMATION_MESSAGE, scaledIcon);
                 } else {
-                    ImageIcon originalIcon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\march-7th-cry.gif");
+                    ImageIcon originalIcon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\march-7th-cry.gif");
                     Image scaledImage = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
                     ImageIcon scaledIcon = new ImageIcon(scaledImage);
                     Font boldFont = new Font("Arial", Font.BOLD, 20);
@@ -276,14 +276,14 @@ class LucbanCardProgram {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        ImageIcon icon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
         frame.setIconImage(icon.getImage());
         
         JPanel mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\YellowCard_Form.png");
+                ImageIcon backgroundImage = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\YellowCard_Form.png");
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -411,7 +411,7 @@ class LucbanCardProgram {
         
                 /* JOptionPane.showMessageDialog(frame, "Yellow Card Application Submitted" , "Application Status", JOptionPane.INFORMATION_MESSAGE); */
         
-                File file = new File("java-oop-finals-2023-2024/Saved_Details/YellowCard.txt");
+                File file = new File("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024/Saved_Details/YellowCard.txt");
         
                 try {
                 int lastIdNumber = 0;
@@ -472,14 +472,14 @@ class LucbanCardProgram {
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.setLocationRelativeTo(null);
         
-                ImageIcon icon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
+                ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
                 frame.setIconImage(icon.getImage());
                 
                 JPanel mainPanel = new JPanel() {
                     @Override
                     protected void paintComponent(Graphics g) {
                         super.paintComponent(g);
-                        ImageIcon backgroundImage = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanPlainBG.png");
+                        ImageIcon backgroundImage = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanPlainBG.png");
                         g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
                     }
                 };
@@ -487,26 +487,26 @@ class LucbanCardProgram {
         
                 JPanel leftPanel = new JPanel();
                 leftPanel.setLayout(new GridBagLayout());
-                JLabel idLabel = new JLabel(getLatestID("java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt"));
+                JLabel idLabel = new JLabel(getLatestID("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt"));
                 leftPanel.add(idLabel);
         
                 JPanel rightPanel = new JPanel();
                 rightPanel.setLayout(new GridLayout(5, 2, 10, 10));
                 
                 rightPanel.add(new JLabel("Name:"));
-                rightPanel.add(new JLabel(getDetail("java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Name")));
+                rightPanel.add(new JLabel(getDetail("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Name")));
                 
                 rightPanel.add(new JLabel("Address:"));
-                rightPanel.add(new JLabel(getDetail("java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Address")));
+                rightPanel.add(new JLabel(getDetail("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Address")));
                 
                 rightPanel.add(new JLabel("Blood Type:"));
-                rightPanel.add(new JLabel(getDetail("java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Blood Type")));
+                rightPanel.add(new JLabel(getDetail("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Blood Type")));
                 
                 rightPanel.add(new JLabel("Date Issued:"));
-                rightPanel.add(new JLabel(getDetail("java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Date Issued")));
+                rightPanel.add(new JLabel(getDetail("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Date Issued")));
                 
                 rightPanel.add(new JLabel("Expiry Date:"));
-                rightPanel.add(new JLabel(getDetail("java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Expiry Date")));
+                rightPanel.add(new JLabel(getDetail("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Saved_Details\\YellowCard.txt", "Expiry Date")));
                 
                 mainPanel.add(leftPanel, BorderLayout.WEST);
                 mainPanel.add(rightPanel, BorderLayout.CENTER);
@@ -586,7 +586,7 @@ class LucbanCardProgram {
     }
 
     private void BlueCard() {
-        ImageIcon icon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\march-7th.gif");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\march-7th.gif");
         Image scaleIcon = icon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon scaledIcon = new ImageIcon(scaleIcon);
         // Using HTML tags to set the message text to bold and font size 20
@@ -608,14 +608,14 @@ class Instructions {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        ImageIcon icon = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanLogo.png");
         frame.setIconImage(icon.getImage());
 
         JPanel mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("java-oop-finals-2023-2024\\Pictures\\LucbanInstructions.png");
+                ImageIcon backgroundImage = new ImageIcon("CPE05 - Object Oriented Programming\\java-oop-finals-2023-2024\\Pictures\\LucbanInstructions.png");
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };

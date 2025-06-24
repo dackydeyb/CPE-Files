@@ -11,7 +11,7 @@ public class GUIActivity_13_RegistrationRegistration_Form {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //change the image of the frame
-        ImageIcon icon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/March 7th_6.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\March 7th_6.png");
         frame.setIconImage(icon.getImage());
 
         JPanel panel = new JPanel(new BorderLayout());

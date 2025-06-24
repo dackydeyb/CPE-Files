@@ -12,7 +12,7 @@ import java.awt.*;
 public class GUIActivity_15_Images {
     public static void main(String[] args) {
         // Set the frame icon
-        ImageIcon icon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/MS_Publisher_(2019).png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\MS_Publisher_(2019).png");
         JFrame frame = new JFrame();
         frame.setTitle("Microsoft Publisher 2007");
         frame.setIconImage(icon.getImage());
@@ -27,24 +27,24 @@ public class GUIActivity_15_Images {
         JMenu fileMenu = new JMenu("File");
 
         // Create the menu items with images
-        ImageIcon newIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_NEW.png");
+        ImageIcon newIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_NEW.png");
         JMenuItem newItem = new JMenuItem("   New...                                                        Crtl + N", newIcon);
 
-        ImageIcon openIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_OPEN.png");
+        ImageIcon openIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_OPEN.png");
         JMenuItem openItem = new JMenuItem("   Open...                                                      Ctrl + O", openIcon);
 
-        ImageIcon closeIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_CLOSE.png");
+        ImageIcon closeIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_CLOSE.png");
         JMenuItem closeItem = new JMenuItem("   Close...                                                    Ctrl + F4", closeIcon);
 
         JMenuItem importItem = new JMenuItem("   Import Word Document...");
 
-        ImageIcon saveIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_SAVE.png");
+        ImageIcon saveIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_SAVE.png");
         JMenuItem saveItem = new JMenuItem("   Save                                                          Ctrl + S", saveIcon);
 
-        ImageIcon saveAsIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_SAVE_AS.png");
+        ImageIcon saveAsIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_SAVE_AS.png");
         JMenuItem saveAsItem = new JMenuItem("   Save As...", saveAsIcon);
 
-        ImageIcon publishToWeb = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_WEB.png");
+        ImageIcon publishToWeb = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_WEB.png");
         JMenuItem publishToWebItem = new JMenuItem("   Publish to tge Web...", publishToWeb);
 
         JMenu subPackAndGoSub = new JMenu("   Pack and Go");
@@ -55,25 +55,25 @@ public class GUIActivity_15_Images {
 
         JMenuItem convertItem = new JMenuItem("   Convert to Web Publication...");
 
-        ImageIcon findAddInsIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_ADDINS.png");
+        ImageIcon findAddInsIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_ADDINS.png");
         JMenuItem findAddInsItem = new JMenuItem("   Find add-ins for other file formats...", findAddInsIcon);
         
-        ImageIcon webPagePreviewIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_WEBPREVIEW.png");
+        ImageIcon webPagePreviewIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_WEBPREVIEW.png");
         JMenuItem webPagePreviewItem = new JMenuItem("   Web Page Preview", webPagePreviewIcon);
 
         JMenuItem pageSetUpItem = new JMenuItem("   Page Setup...");
 
-        ImageIcon printSetUpIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_PRINTSETUP.png");
+        ImageIcon printSetUpIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_PRINTSETUP.png");
         JMenuItem printSetUpItem = new JMenuItem("   Print Setup...", printSetUpIcon);
 
-        ImageIcon printPreviewIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_PRINTPREVIEW.png");
+        ImageIcon printPreviewIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_PRINTPREVIEW.png");
         JMenuItem printPreviewItem = new JMenuItem("   Print Preview", printPreviewIcon);
 
-        ImageIcon printIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_PRINT.png");
+        ImageIcon printIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_PRINT.png");
         JMenuItem printItem = new JMenuItem("   Print...                                                        Ctrl + P", printIcon);
 
         JMenu subEmail = new JMenu("   Send E-mail");
-            ImageIcon sendPublicationAsAttachmentIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_EMAIL.png");
+            ImageIcon sendPublicationAsAttachmentIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_EMAIL.png");
             JMenuItem sendPublicationAsAttachmentItem = new JMenuItem("   Send Publication as Attachment", sendPublicationAsAttachmentIcon);
             subEmail.add(sendPublicationAsAttachmentItem);
 
@@ -87,7 +87,7 @@ public class GUIActivity_15_Images {
         g2d.dispose();
         JMenuItem propertiesItem = new JMenuItem("   Properties", new ImageIcon(propertiesImage));
 
-        ImageIcon exitIcon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/Publisher_EXIT.png");
+        ImageIcon exitIcon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\Publisher_EXIT.png");
         JMenuItem exitItem = new JMenuItem("   Exit                                                            Alt + F4", exitIcon);
 
         // Add the menu items to the "File" menu

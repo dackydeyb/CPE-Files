@@ -10,7 +10,7 @@ public class GUIActivity_14_Calculator {
         frame.setSize(720, 900);
 
         //Change the icon of the frame
-        ImageIcon icon = new ImageIcon("/home/deyb/Documents/Java OOP/Pictures/March 7th_6.png");
+        ImageIcon icon = new ImageIcon("CPE05 - Object Oriented Programming\\Pictures\\March 7th_6.png");
         frame.setIconImage(icon.getImage());
 
         JPanel panel = new JPanel(new BorderLayout());
