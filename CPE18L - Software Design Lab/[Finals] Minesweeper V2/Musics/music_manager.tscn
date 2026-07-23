@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://xui5edk6lm1o"]
+
+[ext_resource type="AudioStream" uid="uid://b8kroma6ej0ks" path="res://Musics/Solaris Cubes.mp3" id="1_ty8hp"]
+
+[sub_resource type="GDScript" id="GDScript_fc3ux"]
+script/source = "extends Node
+
+var music_player: AudioStreamPlayer
+
+func _ready():
+	music_player = AudioStreamPlayer.new()
+	add_child(music_player)
+	music_player.stream = load(\"res://Musics/Solaris Cubes.mp3\")
+	music_player.volume_db = 0 # Adjust volume as needed
+	music_player.play()
+
+func play_music():
+	if not music_player.playing:
+		music_player.play()
+
+func stop_music():
+	if music_player.playing:
+		music_player.stop() 
+"
+
+[node name="MusicManager" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ty8hp")
+script = SubResource("GDScript_fc3ux")

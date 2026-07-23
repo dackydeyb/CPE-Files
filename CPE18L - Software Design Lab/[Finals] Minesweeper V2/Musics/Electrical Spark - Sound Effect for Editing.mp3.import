@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cf4pciy18hh7k"
+path="res://.godot/imported/Electrical Spark - Sound Effect for Editing.mp3-36157ca0f35dc8bbff4273f7b9624d45.mp3str"
+
+[deps]
+
+source_file="res://Musics/Electrical Spark - Sound Effect for Editing.mp3"
+dest_files=["res://.godot/imported/Electrical Spark - Sound Effect for Editing.mp3-36157ca0f35dc8bbff4273f7b9624d45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

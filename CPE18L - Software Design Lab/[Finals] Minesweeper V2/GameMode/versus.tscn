@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxrdi6dov1bih"]
+
+[ext_resource type="Script" path="res://GameMode/versus.gd" id="1_bx0e2"]
+[ext_resource type="Texture2D" uid="uid://b537f2ym43nck" path="res://GameMode/versus.jpg" id="2_2dwcm"]
+[ext_resource type="AudioStream" uid="uid://qgpw48x6v4qr" path="res://Musics/SoundButtonPressed.wav" id="3_hbfw5"]
+[ext_resource type="AudioStream" uid="uid://bctkob06dqraf" path="res://Musics/dabstep.ogg" id="4_7vts8"]
+
+[sub_resource type="Animation" id="Animation_mxvax"]
+resource_name = "Black_In"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kdipe"]
+resource_name = "Black_Out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_amcve"]
+resource_name = "IntroPage1_Fade_In"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nmfb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a64f2"]
+_data = {
+"Black_In": SubResource("Animation_mxvax"),
+"Black_Out": SubResource("Animation_kdipe"),
+"IntroPage1_Fade_In": SubResource("Animation_amcve"),
+"RESET": SubResource("Animation_nmfb6")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bx0e2")
+
+[node name="Versus" type="Sprite2D" parent="."]
+position = Vector2(960, 541)
+texture = ExtResource("2_2dwcm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -27.0
+offset_top = -23.0
+offset_right = 1998.0
+offset_bottom = 1164.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a64f2")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, 0)
+offset = Vector2(2.97, 0)
+anchor_mode = 0
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hbfw5")
+volume_db = 24.0
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7vts8")
+volume_db = 11.168
+autoplay = true
